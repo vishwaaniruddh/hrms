@@ -1,4 +1,10 @@
-.nk-main {
+.nk-content {
     position: relative;
     margin-top: 4%;
+}
+@media (min-width: 576px){
+    .nk-content {
+        margin-top: 4%;
+        padding: 24px 22px;
+    }
 }

@@ -13,6 +13,7 @@ import turkey from '../../images/flags/turkey.png'
 import logo_small from '../../images/logo-small.png'
 import logo_dark_small from '../../images/logo-dark-small.png'
 
+import { NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -20,10 +21,10 @@ const Header = () => {
         <>
             <div className="nk-sidebar" data-content="sidebarMenu">
                 <div className="nk-sidebar-bar">
-                    <div className ="nk-apps-brand">
-                        <a href="/demo7/index.html" className ="logo-link">
-                            <img className ="logo-light logo-img" src={logo_small} alt="logo" />
-                            <img className ="logo-dark logo-img" src={logo_dark_small} alt="logo-dark" />
+                    <div className="nk-apps-brand">
+                        <a href="/demo7/index.html" className="logo-link">
+                            <img className="logo-light logo-img" src={logo_small} alt="logo" />
+                            <img className="logo-dark logo-img" src={logo_dark_small} alt="logo-dark" />
                         </a>
                     </div>
 
@@ -86,119 +87,40 @@ const Header = () => {
                 <div className="nk-sidebar-main is-light">
                     <div className="nk-sidebar-inner" data-simplebar>
                         <div className="nk-menu-content menu-active" data-content="navPharmacy">
-                            <h5 className="title">Pharmacy</h5>
+                            <h5 className="title">HRMS</h5>
                             <ul className="nk-menu">
-                                <li className="nk-menu-item"><a href="pharmacy/index.html" className="nk-menu-link"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-dashboard-fill"></em></span><span
-                                        className="nk-menu-text">Dashboard</span></a></li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-users-fill"></em></span><span
-                                        className="nk-menu-text">Customer</span></a>
+                                <li className="nk-menu-item has-sub">
+                                    <NavLink to="/hrms/member" className="nk-menu-link nk-menu-toggle">
+                                        <span className="nk-menu-icon">
+                                            <em className="icon ni ni-user-circle-fill"></em>
+                                        </span>
+                                        <span className="nk-menu-text">Human resource</span>
+                                    </NavLink>
                                     <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/add-customer.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Add Customer</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/customer.html" className="nk-menu-link"><span
-                                            className="nk-menu-text">Customer List</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/customer-ledger.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Customer Ledger</span></a>
+                                        <li className="nk-menu-item">
+                                            <NavLink to="/hrms/members" className="nk-menu-link">
+                                                <span className="nk-menu-text">Member</span>
+                                            </NavLink>
+                                        </li>
+                                        <li className="nk-menu-item">
+                                            <NavLink to="/hrms/memberProfile" className="nk-menu-link">
+                                                <span className="nk-menu-text">Members Profile</span>
+                                            </NavLink>
+                                        </li>
+                                        <li className="nk-menu-item">
+                                            <NavLink to="/hrms/attendence" className="nk-menu-link">
+                                                <span className="nk-menu-text">Attendance</span>
+                                            </NavLink>
+                                        </li>
+                                        <li className="nk-menu-item">
+                                            <NavLink to="/hrms/salary" className="nk-menu-link">
+                                                <span className="nk-menu-text">Salary</span>
+                                            </NavLink>
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-capsule-fill"></em></span><span
-                                        className="nk-menu-text">Medicine</span></a>
-                                    <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/add-medicine.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Add Medicine</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/medicine-list.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Medicine List</span></a>
-                                        </li>
-                                        <li className="nk-menu-item"><a href="pharmacy/medicine-details.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Medicine Details</span></a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-home-fill"></em></span><span
-                                        className="nk-menu-text">Manufacturer</span></a>
-                                    <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/manufacturer.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Manufacturer List</span></a>
-                                        </li>
-                                        <li className="nk-menu-item"><a href="pharmacy/manufacturer-ledger.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Manufacturer
-                                                Ledger</span></a></li>
-                                    </ul>
-                                </li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-repeat"></em></span><span
-                                        className="nk-menu-text">Return</span></a>
-                                    <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/add-wastage-return.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Add Wastage
-                                                Return</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/wastage-return.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Wastage Return
-                                                List</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/add-manufacturer-return.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Add Manufacture
-                                                Return</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/manufacturer-return.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Manufacturer Return
-                                                List</span></a></li>
-                                    </ul>
-                                </li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-user-circle-fill"></em></span><span
-                                        className="nk-menu-text">Human resource</span></a>
-                                    <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/member.html" className="nk-menu-link"><span
-                                            className="nk-menu-text">Member</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/members-profile-regular.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Members Profile</span></a>
-                                        </li>
-                                        <li className="nk-menu-item"><a href="pharmacy/attendence.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Attendence</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/salary.html" className="nk-menu-link"><span
-                                            className="nk-menu-text">Salary</span></a></li>
-                                    </ul>
-                                </li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-coin-alt-fill"></em></span><span
-                                        className="nk-menu-text">Finance</span></a>
-                                    <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/income-list.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Income</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/expense-list.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Expence</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/invoice-list.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Invoice List</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/invoice-details.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Invoice Details</span></a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="nk-menu-item has-sub"><a href="#" className="nk-menu-link nk-menu-toggle"><span
-                                    className="nk-menu-icon"><em
-                                        className="icon ni ni-activity-round-fill"></em></span><span
-                                            className="nk-menu-text">Report</span></a>
-                                    <ul className="nk-menu-sub">
-                                        <li className="nk-menu-item"><a href="pharmacy/sales-report.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Sales Report</span></a></li>
-                                        <li className="nk-menu-item"><a href="pharmacy/purchase-report.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Purchase Report</span></a>
-                                        </li>
-                                        <li className="nk-menu-item"><a href="pharmacy/stock-report.html"
-                                            className="nk-menu-link"><span className="nk-menu-text">Stock Report</span></a></li>
-                                    </ul>
-                                </li>
-                                <li className="nk-menu-item"><a href="pharmacy/support.html" className="nk-menu-link"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-msg-fill"></em></span><span
-                                        className="nk-menu-text">Support</span></a></li>
-                                <li className="nk-menu-item"><a href="pharmacy/general-settings.html" className="nk-menu-link"><span
-                                    className="nk-menu-icon"><em className="icon ni ni-setting-fill"></em></span><span
-                                        className="nk-menu-text">Setting</span></a></li>
                             </ul>
+
                         </div>
                     </div>
                 </div>

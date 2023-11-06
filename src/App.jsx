@@ -1,26 +1,26 @@
 import React from 'react';
 import MainLayout from './components/MainLayout'; // Import your MainLayout component
+import Member from './components/hrms/Member.jsx';
+// import { Routes, Route, Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MemberProfile from './components/hrms/MemberProfile.jsx';
+import Attendence from './components/hrms/Attendence.jsx';
+import Salary from './components/hrms/Salary.jsx';
 
 const HomePage = () => {
     return (
-        <MainLayout>
+        <Router>
+            <MainLayout />
+            <Routes>
+                <Route exact path="/hrms/members" element={<Member />} />
+                <Route exact path="/hrms/memberProfile" element={<MemberProfile />} />
+                <Route exact path="/hrms/attendence" element={<Attendence />} />
+                <Route exact path="/hrms/salary" element={<Salary />} />
 
-            <div className="nk-main">
+                
+            </Routes>
+        </Router>
 
-                <div className="nk-wrap">
-                    <div className="nk-content ">
-                        <div className="container-fluid">
-                            <div className="nk-content-inner">
-                                <div className="nk-content-body">
-                                    <p>Starter page .</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </MainLayout>
     );
 };
 
