@@ -82,7 +82,7 @@ export default function MemberProfile() {
                                                         </div>
                                                         <div className="simplebar-mask">
                                                             <div className="simplebar-offset" style={{ right: '0px', bottom: '0px' }}>
-                                                                <div className="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style={{ height: 'auto', overflow: 'hidden' }}>
+                                                                <div className="simplebar-content-wrapper" tabIndex="0" role="region" aria-label="scrollable content" style={{ height: 'auto', overflow: 'hidden' }}>
                                                                     <div className="simplebar-content" style={{ padding: '0px' }}>
                                                                         <div className="card-inner">
                                                                             <div className="user-card">
