@@ -41,8 +41,10 @@ export const removeUserSession = () => {
   localStorage.removeItem('id');
   localStorage.removeItem('username');
   localStorage.removeItem('userid');
-
-
+  localStorage.removeItem('roleid');
+  localStorage.removeItem('rolename');
+  localStorage.removeItem('perm');
+  localStorage.removeItem('role_permission');
 }
 
 // set the token and user from the session storage
