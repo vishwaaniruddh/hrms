@@ -143,7 +143,7 @@ const Header = () => {
                         <div className="nk-header-tools">
                             <ul className="nk-quick-nav">
                                 <li className="nav-item"><a data-bs-toggle="modal" href="#region"
-                                    className="nk-quick-nav-icon"><em className="icon ni ni-globe"></em></a></li>
+                                    className="nk-quick-nav-icon" aria-label="Select Region"><em className="icon ni ni-globe"></em></a></li>
                                 <li className="dropdown chats-dropdown hide-mb-xs"><a href="#"
                                     className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                     <div className="icon-status icon-status-na"><em
