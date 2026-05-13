@@ -1,0 +1,4 @@
+## 2024-05-24 - [Incomplete Logout Clear & Persistent Token Storage]
+**Vulnerability:** `localStorage` was used for sensitive session data (tokens, roles) causing persistent risk if device is shared or XSS occurs. Additionally, `removeUserSession` only cleared 4 of the 8 variables set by `setUserSession`, leading to stale authorization data (`role_permission`, `roleid`, etc) remaining after a user logged out.
+**Learning:** The existing codebase had mismatched set/remove logic for session state and favored persistent storage over session storage for sensitive data, which is a common but dangerous pattern.
+**Prevention:** Always enforce symmetric cleanup of session state upon logout. Default to `sessionStorage` over `localStorage` for sensitive authentication identifiers when `HttpOnly` cookies are not an option, to limit data lifecycle to the active browser tab.
