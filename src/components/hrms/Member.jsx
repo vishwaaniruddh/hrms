@@ -37,7 +37,7 @@ return (
                                              <option value="delete">Delete</option>
                                           </select>
                                           </div>
-                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button className="btn btn-dim btn-outline-light btn-icon disabled"><em className="icon ni ni-arrow-right"></em></button></span></div>
+                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button aria-label="Apply bulk action" className="btn btn-dim btn-outline-light btn-icon disabled"><em className="icon ni ni-arrow-right"></em></button></span></div>
                                     </div>
                                  </div>
                                  <div className="card-tools me-n1">
@@ -126,8 +126,8 @@ return (
                               </div>
                               <div className="card-search search-wrap" data-search="search">
                                  <div className="card-body">
-                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
-                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
+                                    <div className="search-content"><a href="#" aria-label="Close Search" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
+                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button aria-label="Submit Search" className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
                                  </div>
                               </div>
                            </div>
