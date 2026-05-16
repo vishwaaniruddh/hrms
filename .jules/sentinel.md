@@ -1,0 +1,4 @@
+## 2024-05-16 - Insecure Session Management
+**Vulnerability:** Session data including tokens and role IDs were stored in `localStorage` rather than `sessionStorage`, and the logout utility (`removeUserSession`) failed to clear all stored authorization keys (left `roleid`, `rolename`, `perm`, `role_permission` uncleared).
+**Learning:** This architectural flaw means that session credentials persist indefinitely across browser sessions and tabs, and even upon "logout," lingering role/permission keys could potentially be exploited to bypass client-side authorization checks if the token state is rehydrated.
+**Prevention:** Use `sessionStorage` for all sensitive auth-related tokens and explicitly ensure that all session state keys that are `setItem`'d upon login are correspondingly `removeItem`'d upon logout.
