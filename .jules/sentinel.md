@@ -1,0 +1,4 @@
+## 2024-05-19 - [Insecure Session Management via localStorage]
+**Vulnerability:** User session data, including tokens and roles, was stored in `localStorage`, exposing it to potential cross-site scripting (XSS) attacks over longer durations as it persists across tabs and sessions. Also, logout logic failed to clear all stored session properties.
+**Learning:** `localStorage` does not clear on browser close, creating a wider attack surface. When updating authentication code, it is critical to verify all components of the session state are properly tracked and removed on logout.
+**Prevention:** Always use `sessionStorage` (or HttpOnly cookies if applicable) for sensitive session information so data is cleared upon tab closure. Establish a single source of truth (e.g., an array of keys) for session variables to guarantee complete cleanup during logout.
