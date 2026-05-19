@@ -1,0 +1,3 @@
+## 2024-05-18 - Icon-Only Button ARIA Labels
+**Learning:** This application heavily relies on legacy HTML/CSS class structures (like `.nk-quick-nav-icon`, `.nk-nav-toggle`) for navigation and interactions where the content is visually conveyed purely by icons (e.g. `<em className="icon ni ni-menu"></em>`), lacking intrinsic accessibility context for screen readers.
+**Action:** When working on UX improvements in this app, proactively scan for icon-only anchor tags or buttons and append descriptive `aria-label` attributes to ensure keyboard and screen reader accessibility, as this is a pervasive pattern throughout the component library.
