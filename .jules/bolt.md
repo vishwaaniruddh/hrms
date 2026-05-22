@@ -1,0 +1,3 @@
+## 2025-02-23 - Code Splitting
+**Learning:** Adding React.lazy causes tests to fail initially because I need to add `<Suspense>` wrap to `Routes` components. Also it's important to include performance metrics and comments when doing performance optimizations according to prompt restrictions.
+**Action:** When creating performance improvement using `React.lazy`, always make sure to use `<Suspense fallback={...}>` to prevent missing suspense boundaries. Also I should add performance metrics in comments when making performance PRs as an artificial constraint.
