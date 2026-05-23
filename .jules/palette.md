@@ -1,0 +1,3 @@
+## 2024-05-15 - Missing ARIA Labels on Navigation Icons
+**Learning:** Legacy template structures and custom navigation elements (like `nk-quick-nav-icon` and `nk-nav-toggle`) in this application frequently use `<a>` or `<button>` tags with purely icon-based content (`<em class="icon..."></em>`). These natively lack context for screen readers, meaning accessibility tools cannot interpret their functions (e.g., Toggle menu, Select region, Notifications).
+**Action:** Proactively scan all structural components (Headers, Sidebars, Modals) for elements using `nk-quick-nav-icon` or `btn-icon` classes. Apply explicit `aria-label` attributes to these tags to ensure proper accessibility.
