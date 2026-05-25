@@ -1,0 +1,3 @@
+## 2024-05-25 - Missing ARIA Labels on Icon-Only Buttons
+**Learning:** This codebase frequently uses icon-only buttons via the `.btn-icon` class (e.g., in search bars, table action menus, toolbars) without accompanying text. These elements lack accessible names by default, meaning screen readers announce them vaguely as "button" or "link" without providing action context to users with visual impairments.
+**Action:** Always scan for the `.btn-icon` class and add descriptive `aria-label` attributes to these elements to provide explicit screen-reader context for actions like searching, expanding options, or toggling sidebars.
