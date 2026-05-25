@@ -1,0 +1,4 @@
+## 2024-05-30 - [Insecure Session Storage and Incomplete Logout]
+**Vulnerability:** Authentication tokens and user metadata were stored in `localStorage` instead of `sessionStorage`, allowing data to persist across browser restarts. Additionally, the `removeUserSession` function failed to clear `roleid`, `rolename`, `perm`, and `role_permission` keys, leaving stale authorization data after logout.
+**Learning:** Legacy implementations often default to `localStorage` without considering the persistence risks on shared devices. Furthermore, incomplete cleanup during logout creates a risk of privilege inheritance if a subsequent user logs in.
+**Prevention:** Always use `sessionStorage` for sensitive authentication and authorization data when `HttpOnly` cookies are unavailable. Ensure logout functions comprehensively clear all session-related keys defined during login.
