@@ -1,0 +1,4 @@
+## 2024-05-24 - [Insecure Session Storage & Incomplete Logout]
+**Vulnerability:** Authentication tokens and user data were stored in `localStorage` instead of `sessionStorage`, persisting across browser sessions. Furthermore, the `removeUserSession` logout function failed to clear 4 of the 8 keys created during login (`roleid`, `rolename`, `perm`, `role_permission`).
+**Learning:** Legacy session management code often forgets to update the cleanup/logout functions when new session attributes are added. `localStorage` is widely used by default in React tutorials but introduces unnecessary persistence risks for authentication data when `HttpOnly` cookies aren't used.
+**Prevention:** Always pair `setItem` logic with comprehensive `removeItem` logic, and default to `sessionStorage` for frontend auth persistence unless cross-tab persistence is an explicit, verified requirement.
