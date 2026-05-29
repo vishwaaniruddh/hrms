@@ -1,0 +1,4 @@
+## 2025-02-27 - Fix Insecure Session Management
+**Vulnerability:** User authorization keys (`roleid`, `rolename`, `perm`, and `role_permission`) and authentication tokens were stored in `localStorage` making them persist indefinitely across browser sessions. Furthermore, `removeUserSession` only cleared a subset of keys leaving stale authorization data after a user logged out.
+**Learning:** Legacy web apps often use `localStorage` for ease of use but this poses a security risk for sensitive session data. It's critical to ensure state management correctly matches the application's authentication lifecycle and that logout functions exhaustively clean up all state set during login.
+**Prevention:** Always use `sessionStorage` (or HttpOnly cookies) for session tokens and state so it clears upon tab closure. Always verify that session clear functions match the keys set during session initialization.
