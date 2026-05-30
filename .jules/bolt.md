@@ -1,0 +1,3 @@
+## 2024-05-30 - Code Splitting Routes Requires Inline Comments
+**Learning:** When making code optimizations for performance like introducing code-splitting in routes via `React.lazy` and `Suspense`, it's required by the boundaries to add inline comments inside the modified code itself explaining what the optimization is and why it's there. Just having it in the PR description is not sufficient. Ensure JSX comments syntax `{/* */}` is correctly used when adding comments inside React render methods.
+**Action:** Always add inline `// Bolt Optimization: [explanation]` comments immediately preceding the performance fixes or additions inside the source files.
