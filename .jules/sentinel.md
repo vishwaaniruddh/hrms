@@ -1,0 +1,4 @@
+## 2024-05-30 - Incomplete Session Termination
+**Vulnerability:** The application's logout functionality (`removeUserSession` in `src/utils/Common.jsx`) failed to clear all stored user session variables (specifically `roleid`, `rolename`, `perm`, and `role_permission`), leaving sensitive authorization state accessible on the client.
+**Learning:** This occurred because new session variables were added to `setUserSession` over time without updating the corresponding `removeUserSession` cleanup function, a common maintenance oversight in legacy state management.
+**Prevention:** Whenever new session properties or authorization state data are introduced during login, ensure they are also explicitly handled during the logout or session teardown processes. Using a single JSON object for session state can prevent scattered cleanup logic.
