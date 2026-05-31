@@ -1,0 +1,3 @@
+## 2024-05-24 - Missing ARIA Labels on Icon-only Navigation Buttons
+**Learning:** The application's core navigation header heavily utilizes icon-only buttons (like `nk-nav-toggle`, `nk-quick-nav-icon`) for toggling sidebars, dropdowns, and regions. These elements natively lack semantic meaning for screen readers, meaning visually impaired users have no context for these primary navigation actions.
+**Action:** When working with header components or custom Dashlite UI patterns, proactively scan for icon-only `<a>` or `<button>` elements and ensure descriptive `aria-label` attributes are applied to improve accessibility.
