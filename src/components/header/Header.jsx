@@ -132,7 +132,7 @@ const Header = () => {
                 <div className="container-fluid">
                     <div className="nk-header-wrap">
                         <div className="nk-menu-trigger d-xl-none ms-n1"><a href="#"
-                            className="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                            aria-label="Toggle sidebar menu" className="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
                                 className="icon ni ni-menu"></em></a></div>
                         <div className="nk-header-brand d-xl-none"><a href="index-2.html" className="logo-link">
                         </a></div>
@@ -143,9 +143,9 @@ const Header = () => {
                         <div className="nk-header-tools">
                             <ul className="nk-quick-nav">
                                 <li className="nav-item"><a data-bs-toggle="modal" href="#region"
-                                    className="nk-quick-nav-icon"><em className="icon ni ni-globe"></em></a></li>
+                                    aria-label="Region selector" className="nk-quick-nav-icon"><em className="icon ni ni-globe"></em></a></li>
                                 <li className="dropdown chats-dropdown hide-mb-xs"><a href="#"
-                                    className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                    aria-label="Chats dropdown" className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                     <div className="icon-status icon-status-na"><em
                                         className="icon ni ni-comments"></em></div>
                                 </a>
@@ -264,7 +264,7 @@ const Header = () => {
                                     </div>
                                 </li>
                                 <li className="dropdown notification-dropdown"><a href="#"
-                                    className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                    aria-label="Notifications dropdown" className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                     <div className="icon-status icon-status-info"><em className="icon ni ni-bell"></em>
                                     </div>
                                 </a>
@@ -340,7 +340,7 @@ const Header = () => {
                                     </div>
                                 </li>
                                 <li className="dropdown language-dropdown d-none d-sm-block me-n1"><a href="#"
-                                    className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                    aria-label="Language selector" className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                     <div className="quick-icon border border-light"><img className="icon"
                                         src={english_sq} alt="" /></div>
                                 </a>
