@@ -1,0 +1,3 @@
+## 2024-05-19 - Route-based Code Splitting Implementation
+**Learning:** Legacy imports in React Router v6 setups can bloat the main chunk significantly if not lazy-loaded. The `<MainLayout />` component is rendered as a sibling to `<Routes>` rather than wrapping them, which is unconventional but correctly accommodated by wrapping only `<Routes>` in `<Suspense>`.
+**Action:** When adding new routes to `src/App.jsx`, immediately implement `React.lazy()` for the component import to maintain optimal bundle sizes and prevent regressions. Ensure the `<Suspense>` boundary safely envelops only the dynamically loaded chunks.
