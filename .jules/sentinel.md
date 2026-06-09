@@ -1,0 +1,4 @@
+## 2024-06-09 - Insecure Session Storage and Incomplete Cleanup
+**Vulnerability:** Authentication and session tokens, along with user permissions, were being stored in `localStorage` instead of `sessionStorage`. Furthermore, the `removeUserSession` function failed to clean up all 8 session keys upon logout.
+**Learning:** Using `localStorage` exposes sensitive tokens to persistent storage across browser sessions, increasing the risk of unauthorized access if a user forgets to explicitly log out, especially on shared devices. Failing to clear all session variables on logout exacerbates this risk and can lead to lingering unauthorized state.
+**Prevention:** Always use `sessionStorage` for temporary session credentials so they are cleared automatically when the browser tab closes. Ensure the logout routine systematically clears all session keys that are set during login.
