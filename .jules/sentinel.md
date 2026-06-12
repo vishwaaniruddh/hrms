@@ -1,0 +1,4 @@
+## 2026-06-12 - Migrate Session Data to sessionStorage
+**Vulnerability:** Sensitive user session data (auth token, permissions, roles) was stored persistently in `localStorage`, exposing it to long-term XSS attacks and cross-tab/window persistence risks even after closing the browser.
+**Learning:** `localStorage` persists data indefinitely across tabs and sessions unless explicitly cleared, while `sessionStorage` limits the attack surface by clearing data when the browser tab is closed. This provides a fundamental frontend-only defense-in-depth improvement when `HttpOnly` cookies are unavailable.
+**Prevention:** Avoid `localStorage` for sensitive authentication or session state. Default to `sessionStorage` for token management to ensure session boundaries align with browser tab lifecycles.
