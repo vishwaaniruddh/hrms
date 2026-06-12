@@ -1,0 +1,3 @@
+## 2024-06-12 - Missing ARIA labels on utility icon buttons
+**Learning:** The application heavily utilizes the utility classes `.btn-icon`, `.dropdown-toggle`, and `.search-toggle` across legacy dashboard interfaces (like `Member.jsx` and `Salary.jsx`). These buttons exclusively contain `<em className="icon...">` children and lack native textual context, making them opaque to screen readers.
+**Action:** Always scan for these specific classes (`.btn-icon`) when implementing UX updates on older components and proactively add descriptive `aria-label` attributes to ensure keyboard and assistive tech accessibility.
