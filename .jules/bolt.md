@@ -1,0 +1,4 @@
+## $(date +%Y-%m-%d) - Optimize Initial Load with Code Splitting
+
+**Learning:** Route components in React applications are prime candidates for code splitting, particularly in large administrative interfaces where users may only ever visit a subset of pages. Using `React.lazy()` and `<Suspense>` defers the loading of these components until their respective routes are accessed, significantly reducing the initial bundle payload.
+**Action:** Always verify if a React application is utilizing code splitting for its primary routes. If not, implementing it offers an immediate, safe performance win with minimal architectural risk. Ensure that when using React 18+ the new JSX transform is active so that default `React` imports are unnecessary, but always wrap the newly dynamic components (usually the `<Routes>` block) in a `<Suspense>` boundary to prevent runtime errors during module loading.
