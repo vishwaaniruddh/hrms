@@ -1,0 +1,3 @@
+## 2026-07-02 - Missing ARIA Labels on Icon Buttons
+**Learning:** The application heavily relies on utility classes (`.nk-quick-nav-icon`, `.btn-icon`, `.nk-nav-toggle`, `.dropdown-toggle`) for icon-only buttons in navigation bars and headers. These elements lack native text content and require explicit `aria-label` attributes to provide accessible names for screen readers.
+**Action:** When implementing new features or reviewing existing components containing icon-only elements built with these utility classes, proactively add `aria-label` attributes to ensure keyboard and screen reader accessibility.
