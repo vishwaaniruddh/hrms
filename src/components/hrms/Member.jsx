@@ -16,7 +16,7 @@ return (
                            </div>
                         </div>
                         <div className="nk-block-head-content">
-                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none">
+                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none" aria-label="Add Member">
                            <em className="icon ni ni-plus"></em></a>
                            <a href="/demo7/pharmacy/add-member.html" className="btn btn-primary d-none d-md-inline-flex"><em className="icon ni ni-plus"></em><span>Add Member</span></a>
                         </div>
@@ -37,29 +37,29 @@ return (
                                              <option value="delete">Delete</option>
                                           </select>
                                           </div>
-                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button className="btn btn-dim btn-outline-light btn-icon disabled"><em className="icon ni ni-arrow-right"></em></button></span></div>
+                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button className="btn btn-dim btn-outline-light btn-icon disabled" aria-label="Apply Bulk Action"><em className="icon ni ni-arrow-right"></em></button></span></div>
                                     </div>
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" aria-label="Toggle Search" data-target="search"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
-                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-menu-right"></em></a>
+                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Toggle Tools"><em className="icon ni ni-menu-right"></em></a>
                                              <div className="toggle-content" data-content="cardTools">
                                                 <ul className="btn-toolbar gx-1">
-                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-arrow-left"></em></a></li>
+                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Toggle Tools"><em className="icon ni ni-arrow-left"></em></a></li>
                                                    <li>
                                                       <div className="dropdown">
-                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown">
+                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown" aria-label="Filter Options">
                                                             <div className="dot dot-primary"></div>
                                                             <em className="icon ni ni-filter-alt"></em>
                                                          </a>
                                                          <div className="filter-wg dropdown-menu dropdown-menu-xl dropdown-menu-end">
                                                             <div className="dropdown-head">
                                                                <span className="sub-title dropdown-title">Filter Members</span>
-                                                               <div className="dropdown"><a href="#" className="btn btn-sm btn-icon"><em className="icon ni ni-more-h"></em></a></div>
+                                                               <div className="dropdown"><a href="#" className="btn btn-sm btn-icon" aria-label="Filter Options"><em className="icon ni ni-more-h"></em></a></div>
                                                             </div>
                                                             <div className="dropdown-body dropdown-body-rg">
                                                                <div className="row gx-6 gy-3">
@@ -101,7 +101,7 @@ return (
                                                    </li>
                                                    <li>
                                                       <div className="dropdown">
-                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown"><em className="icon ni ni-setting"></em></a>
+                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown" aria-label="Settings"><em className="icon ni ni-setting"></em></a>
                                                          <div className="dropdown-menu dropdown-menu-xs dropdown-menu-end">
                                                             <ul className="link-check">
                                                                <li><span>Show</span></li>
@@ -126,8 +126,8 @@ return (
                               </div>
                               <div className="card-search search-wrap" data-search="search">
                                  <div className="card-body">
-                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
-                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
+                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" aria-label="Close Search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
+                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon" aria-label="Submit Search"><em className="icon ni ni-search"></em></button></div>
                                  </div>
                               </div>
                            </div>
@@ -148,7 +148,7 @@ return (
                                        <ul className="nk-tb-actions gx-1 my-n1">
                                           <li>
                                              <div className="drodown">
-                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
+                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger me-n1" aria-label="More Options" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
                                                 <div className="dropdown-menu dropdown-menu-end">
                                                    <ul className="link-list-opt no-bdr">
                                                       <li><a href="#"><em className="icon ni ni-mail"></em><span>Send Email to All</span></a></li>
@@ -191,7 +191,7 @@ return (
                                           <li className="nk-tb-action-hidden"><a href="#" className="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Suspend" data-bs-original-title="Suspend"><em className="icon ni ni-user-cross-fill"></em></a></li>
                                           <li>
                                              <div className="drodown">
-                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
+                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown" aria-label="More Options"><em className="icon ni ni-more-h"></em></a>
                                                 <div className="dropdown-menu dropdown-menu-end">
                                                    <ul className="link-list-opt no-bdr">
                                                       <li><a href="/demo7/pharmacy/members-profile-regular.html"><em className="icon ni ni-eye"></em><span>View Details</span></a></li>
