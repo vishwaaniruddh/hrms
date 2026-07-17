@@ -16,7 +16,7 @@ return (
                            </div>
                         </div>
                         <div className="nk-block-head-content">
-                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none">
+                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none" aria-label="Add Member">
                            <em className="icon ni ni-plus"></em></a>
                            <a href="/demo7/pharmacy/add-member.html" className="btn btn-primary d-none d-md-inline-flex"><em className="icon ni ni-plus"></em><span>Add Member</span></a>
                         </div>
@@ -37,12 +37,12 @@ return (
                                              <option value="delete">Delete</option>
                                           </select>
                                           </div>
-                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button className="btn btn-dim btn-outline-light btn-icon disabled"><em className="icon ni ni-arrow-right"></em></button></span></div>
+                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button className="btn btn-dim btn-outline-light btn-icon disabled" aria-label="Apply Bulk Action"><em className="icon ni ni-arrow-right"></em></button></span></div>
                                     </div>
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search" aria-label="Toggle Search"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
