@@ -42,7 +42,7 @@ return (
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" aria-label="Open search" data-target="search"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
@@ -126,8 +126,8 @@ return (
                               </div>
                               <div className="card-search search-wrap" data-search="search">
                                  <div className="card-body">
-                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
-                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
+                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" aria-label="Close search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
+                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon" aria-label="Submit search"><em className="icon ni ni-search"></em></button></div>
                                  </div>
                               </div>
                            </div>
