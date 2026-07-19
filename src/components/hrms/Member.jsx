@@ -42,24 +42,24 @@ return (
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search" aria-label="Search"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
-                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-menu-right"></em></a>
+                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Open tools"><em className="icon ni ni-menu-right"></em></a>
                                              <div className="toggle-content" data-content="cardTools">
                                                 <ul className="btn-toolbar gx-1">
-                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-arrow-left"></em></a></li>
+                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Close tools"><em className="icon ni ni-arrow-left"></em></a></li>
                                                    <li>
                                                       <div className="dropdown">
-                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown">
+                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown" aria-label="Filter members">
                                                             <div className="dot dot-primary"></div>
                                                             <em className="icon ni ni-filter-alt"></em>
                                                          </a>
                                                          <div className="filter-wg dropdown-menu dropdown-menu-xl dropdown-menu-end">
                                                             <div className="dropdown-head">
                                                                <span className="sub-title dropdown-title">Filter Members</span>
-                                                               <div className="dropdown"><a href="#" className="btn btn-sm btn-icon"><em className="icon ni ni-more-h"></em></a></div>
+                                                               <div className="dropdown"><a href="#" className="btn btn-sm btn-icon" aria-label="More options"><em className="icon ni ni-more-h"></em></a></div>
                                                             </div>
                                                             <div className="dropdown-body dropdown-body-rg">
                                                                <div className="row gx-6 gy-3">
