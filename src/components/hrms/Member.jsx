@@ -37,22 +37,22 @@ return (
                                              <option value="delete">Delete</option>
                                           </select>
                                           </div>
-                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button className="btn btn-dim btn-outline-light btn-icon disabled"><em className="icon ni ni-arrow-right"></em></button></span></div>
+                                       <div className="btn-wrap"><span className="d-none d-md-block"><button className="btn btn-dim btn-outline-light disabled">Apply</button></span><span className="d-md-none"><button aria-label="Apply" className="btn btn-dim btn-outline-light btn-icon disabled"><em className="icon ni ni-arrow-right"></em></button></span></div>
                                     </div>
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       <li><a aria-label="Search" href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
-                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-menu-right"></em></a>
+                                             <a aria-label="Toggle card tools" href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-menu-right"></em></a>
                                              <div className="toggle-content" data-content="cardTools">
                                                 <ul className="btn-toolbar gx-1">
-                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-arrow-left"></em></a></li>
+                                                   <li className="toggle-close"><a aria-label="Close card tools" href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-arrow-left"></em></a></li>
                                                    <li>
                                                       <div className="dropdown">
-                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown">
+                                                         <a aria-label="Filter" href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown">
                                                             <div className="dot dot-primary"></div>
                                                             <em className="icon ni ni-filter-alt"></em>
                                                          </a>
