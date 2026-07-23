@@ -1,0 +1,3 @@
+## 2026-07-23 - Missing ARIA Labels on Icon-Only Buttons
+**Learning:** The application, particularly in the HRMS components, frequently uses icon-only buttons with the `.btn-icon` class. These buttons lack accessible names (e.g., `aria-label`), making them difficult to use for individuals relying on screen readers. This pattern is pervasive across components like `Salary.jsx`, `Member.jsx`, and `Attendence.jsx`.
+**Action:** When working on or reviewing components with `.btn-icon` classes, explicitly check for and add appropriate `aria-label` attributes to ensure keyboard accessibility and screen reader support.
