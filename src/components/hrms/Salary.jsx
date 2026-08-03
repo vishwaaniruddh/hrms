@@ -279,12 +279,12 @@ export default function Salary() {
                                           </div>
                                           <div class="card-tools me-n1">
                                              <ul class="btn-toolbar gx-1">
-                                                <li><a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search"><em class="icon ni ni-search"></em></a></li>
+                                                <li><a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search" aria-label="Search"><em class="icon ni ni-search"></em></a></li>
                                              </ul>
                                           </div>
                                           <div class="card-search search-wrap" data-search="search">
                                              <div class="card-body">
-                                                <div class="search-content"><a href="#" class="search-back btn btn-icon toggle-search" data-target="search"><em class="icon ni ni-arrow-left"></em></a><input type="text" class="form-control border-transparent form-focus-none" placeholder="Search by name" /><button class="search-submit btn btn-icon"><em class="icon ni ni-search"></em></button></div>
+                                                <div class="search-content"><a href="#" class="search-back btn btn-icon toggle-search" data-target="search" aria-label="Close Search"><em class="icon ni ni-arrow-left"></em></a><input type="text" class="form-control border-transparent form-focus-none" placeholder="Search by name" /><button class="search-submit btn btn-icon" aria-label="Submit Search"><em class="icon ni ni-search"></em></button></div>
                                              </div>
                                           </div>
                                        </div>
@@ -302,7 +302,7 @@ export default function Salary() {
                                                 <ul class="nk-tb-actions gx-1 my-n1">
                                                    <li>
                                                       <div class="drodown">
-                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown" aria-label="More Options"><em class="icon ni ni-more-h"></em></a>
                                                          <div class="dropdown-menu dropdown-menu-end">
                                                             <ul class="link-list-opt no-bdr">
                                                                <li><a data-bs-toggle="modal" href="#editSalary"><em class="icon ni ni-edit"></em><span>Edit Selected</span></a></li>
@@ -331,7 +331,7 @@ export default function Salary() {
                                                 <ul class="nk-tb-actions gx-1">
                                                    <li>
                                                       <div class="drodown">
-                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown" aria-label="More Options"><em class="icon ni ni-more-h"></em></a>
                                                          <div class="dropdown-menu dropdown-menu-end">
                                                             <ul class="link-list-opt no-bdr">
                                                                <li><a data-bs-toggle="modal" href="#addPay"><em class="icon ni ni-coin-alt"></em><span>Pay Now</span></a></li>
