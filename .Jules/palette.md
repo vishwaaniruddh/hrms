@@ -1,0 +1,3 @@
+## 2024-05-24 - Missing ARIA Labels in Icon Buttons Pattern
+**Learning:** The application frequently utilizes a `.btn-icon` CSS class for small, icon-only action buttons (e.g., search toggles, dropdown menus) across various components (like Salary.jsx). These buttons consistently omit the required `aria-label` attribute, creating a significant accessibility barrier for screen readers.
+**Action:** When working on UI components in this codebase, explicitly check all `.btn-icon` elements and proactively append descriptive `aria-label` attributes to ensure keyboard and screen reader accessibility.
