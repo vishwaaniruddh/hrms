@@ -126,8 +126,12 @@ return (
                               </div>
                               <div className="card-search search-wrap" data-search="search">
                                  <div className="card-body">
-                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
-                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
+                                    <div className="search-content">
+                                       {/* 🎨 Palette: Added aria-label to search back button for accessibility */}
+                                       <a href="#" aria-label="Close search" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
+                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" />
+                                    {/* 🎨 Palette: Added aria-label to search submit button for accessibility */}
+                                    <button aria-label="Submit search" className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
                                  </div>
                               </div>
                            </div>
