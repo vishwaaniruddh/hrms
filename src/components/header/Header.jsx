@@ -132,7 +132,8 @@ const Header = () => {
                 <div className="container-fluid">
                     <div className="nk-header-wrap">
                         <div className="nk-menu-trigger d-xl-none ms-n1"><a href="#"
-                            className="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                            aria-label="Toggle navigation menu" className="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}<em
                                 className="icon ni ni-menu"></em></a></div>
                         <div className="nk-header-brand d-xl-none"><a href="index-2.html" className="logo-link">
                         </a></div>
@@ -143,9 +144,11 @@ const Header = () => {
                         <div className="nk-header-tools">
                             <ul className="nk-quick-nav">
                                 <li className="nav-item"><a data-bs-toggle="modal" href="#region"
-                                    className="nk-quick-nav-icon"><em className="icon ni ni-globe"></em></a></li>
+                                    aria-label="Select region" className="nk-quick-nav-icon"><em className="icon ni ni-globe"></em>
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}</a></li>
                                 <li className="dropdown chats-dropdown hide-mb-xs"><a href="#"
-                                    className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                    aria-label="View recent chats" className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}
                                     <div className="icon-status icon-status-na"><em
                                         className="icon ni ni-comments"></em></div>
                                 </a>
@@ -264,7 +267,8 @@ const Header = () => {
                                     </div>
                                 </li>
                                 <li className="dropdown notification-dropdown"><a href="#"
-                                    className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                    aria-label="View notifications" className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}
                                     <div className="icon-status icon-status-info"><em className="icon ni ni-bell"></em>
                                     </div>
                                 </a>
@@ -340,7 +344,8 @@ const Header = () => {
                                     </div>
                                 </li>
                                 <li className="dropdown language-dropdown d-none d-sm-block me-n1"><a href="#"
-                                    className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                    aria-label="Select language" className="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}
                                     <div className="quick-icon border border-light"><img className="icon"
                                         src={english_sq} alt="" /></div>
                                 </a>

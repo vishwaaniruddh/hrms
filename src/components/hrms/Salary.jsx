@@ -7,13 +7,15 @@ export default function Salary() {
       <div class="nk-header nk-header-fixed nk-header-fluid">
          <div class="container-fluid">
             <div class="nk-header-wrap">
-               <div class="nk-menu-trigger d-xl-none ml-n1"><a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a></div>
+               <div class="nk-menu-trigger d-xl-none ml-n1"><a href="#" aria-label="Toggle navigation menu" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}<em class="icon ni ni-menu"></em></a></div>
                <div class="nk-header-brand d-xl-none"><a href="/demo7/index.html" class="logo-link"><img class="logo-light logo-img" src="/demo7/images/logo.png" srcset="/demo7/images/logo2x.png 2x" alt="logo" /><img class="logo-dark logo-img" src="/demo7/images/logo-dark.png" srcset="/demo7/images/logo-dark2x.png 2x" alt="logo-dark" /></a></div>
                <div class="nk-header-search ml-3 ml-xl-0"><em class="icon ni ni-search"></em><input type="text" class="form-control border-transparent form-focus-none" placeholder="Search anything" /></div>
                <div class="nk-header-tools">
                   <ul class="nk-quick-nav">
                      <li class="dropdown chats-dropdown hide-mb-xs">
-                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                        <a href="#" aria-label="View recent chats" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}
                            <div class="icon-status icon-status-na"><em class="icon ni ni-comments"></em></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
@@ -117,7 +119,8 @@ export default function Salary() {
                         </div>
                      </li>
                      <li class="dropdown notification-dropdown">
-                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                        <a href="#" aria-label="View notifications" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}
                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
@@ -279,7 +282,8 @@ export default function Salary() {
                                           </div>
                                           <div class="card-tools me-n1">
                                              <ul class="btn-toolbar gx-1">
-                                                <li><a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search"><em class="icon ni ni-search"></em></a></li>
+                                                <li><a href="#" aria-label="Toggle search" class="btn btn-icon search-toggle toggle-search" data-target="search">
+{/* 🎨 Palette: Added aria-label to icon-only button for screen readers */}<em class="icon ni ni-search"></em></a></li>
                                              </ul>
                                           </div>
                                           <div class="card-search search-wrap" data-search="search">
