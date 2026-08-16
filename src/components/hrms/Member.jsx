@@ -16,7 +16,8 @@ return (
                            </div>
                         </div>
                         <div className="nk-block-head-content">
-                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none">
+                           {/* 🎨 Palette: Added ARIA label to icon-only Add Member button for screen reader accessibility */}
+                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none" aria-label="Add Member">
                            <em className="icon ni ni-plus"></em></a>
                            <a href="/demo7/pharmacy/add-member.html" className="btn btn-primary d-none d-md-inline-flex"><em className="icon ni ni-plus"></em><span>Add Member</span></a>
                         </div>
