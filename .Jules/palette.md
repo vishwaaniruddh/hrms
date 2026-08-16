@@ -1,0 +1,3 @@
+## 2024-08-16 - Icon-only buttons lacking ARIA labels
+**Learning:** Found multiple instances where `btn-icon` instances (e.g., `<a className="btn btn-icon btn-primary d-md-none"><em className="icon ni ni-plus"></em></a>`) lack an `aria-label`. This pattern is specific to how icon buttons are implemented across this app.
+**Action:** Always verify `aria-label` is present on any `<a className="... btn-icon ...">` or `<button className="... btn-icon ...">` elements, especially those lacking textual child content. I will add an `aria-label="Add Member"` to the specific "Add Member" mobile button as an example of this micro-UX enhancement.
