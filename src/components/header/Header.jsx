@@ -154,6 +154,7 @@ const Header = () => {
                                             Chats</span><a href="#">Setting</a></div>
                                         <div className="dropdown-body">
                                             <ul className="chat-list">
+                                                {/* ⚡ Bolt Optimization: Added loading="lazy" to below-the-fold avatars to improve LCP */}
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar"><span>IH</span><span
                                                         className="status dot dot-lg dot-gray"></span></div>
@@ -191,7 +192,7 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar">
-                                                        <img src={B_avatarImage} alt="User Avatar" />
+                                                        <img src={B_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                     </div>
                                                     <div className="chat-info">
@@ -209,7 +210,7 @@ const Header = () => {
                                                     <div className="chat-media user-avatar user-avatar-multiple">
                                                         <div className="user-avatar">
 
-                                                            <img src={C_avatarImage} alt="User Avatar" />
+                                                            <img src={C_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                         </div>
                                                         <div className="user-avatar"><span>AB</span></div>
@@ -228,8 +229,7 @@ const Header = () => {
                                                     </div>
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
-                                                    <div className="chat-media user-avatar"><img
-                                                        src={A_avatarImage} alt="" /><span
+                                                    <div className="chat-media user-avatar"><img src={A_avatarImage} alt="" loading="lazy" /><span
                                                             className="status dot dot-lg dot-success"></span></div>
                                                     <div className="chat-info">
                                                         <div className="chat-from">
