@@ -16,7 +16,8 @@ return (
                            </div>
                         </div>
                         <div className="nk-block-head-content">
-                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none">
+                           {/* 🎨 Palette: Added aria-label to icon-only Add Member button */}
+                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none" aria-label="Add Member">
                            <em className="icon ni ni-plus"></em></a>
                            <a href="/demo7/pharmacy/add-member.html" className="btn btn-primary d-none d-md-inline-flex"><em className="icon ni ni-plus"></em><span>Add Member</span></a>
                         </div>
@@ -42,24 +43,31 @@ return (
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       {/* 🎨 Palette: Added aria-label to icon-only search toggle button */}
+                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search" aria-label="Toggle search"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
-                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-menu-right"></em></a>
+                                             {/* 🎨 Palette: Added aria-label to icon-only tools menu toggle */}
+                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Toggle tools menu"><em className="icon ni ni-menu-right"></em></a>
                                              <div className="toggle-content" data-content="cardTools">
                                                 <ul className="btn-toolbar gx-1">
-                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-arrow-left"></em></a></li>
+                                                   {/* 🎨 Palette: Added aria-label to icon-only close tools menu button */}
+                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Close tools menu"><em className="icon ni ni-arrow-left"></em></a></li>
                                                    <li>
                                                       <div className="dropdown">
-                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown">
+                                                         {/* 🎨 Palette: Added aria-label to icon-only filter button */}
+                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown" aria-label="Filter members">
                                                             <div className="dot dot-primary"></div>
                                                             <em className="icon ni ni-filter-alt"></em>
                                                          </a>
                                                          <div className="filter-wg dropdown-menu dropdown-menu-xl dropdown-menu-end">
                                                             <div className="dropdown-head">
                                                                <span className="sub-title dropdown-title">Filter Members</span>
-                                                               <div className="dropdown"><a href="#" className="btn btn-sm btn-icon"><em className="icon ni ni-more-h"></em></a></div>
+                                                               <div className="dropdown">
+                                                               {/* 🎨 Palette: Added aria-label to icon-only more options button */}
+                                                               <a href="#" className="btn btn-sm btn-icon" aria-label="More filter options"><em className="icon ni ni-more-h"></em></a>
+                                                               </div>
                                                             </div>
                                                             <div className="dropdown-body dropdown-body-rg">
                                                                <div className="row gx-6 gy-3">
@@ -101,7 +109,8 @@ return (
                                                    </li>
                                                    <li>
                                                       <div className="dropdown">
-                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown"><em className="icon ni ni-setting"></em></a>
+                                                         {/* 🎨 Palette: Added aria-label to icon-only settings button */}
+                                                         <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown" aria-label="Settings"><em className="icon ni ni-setting"></em></a>
                                                          <div className="dropdown-menu dropdown-menu-xs dropdown-menu-end">
                                                             <ul className="link-check">
                                                                <li><span>Show</span></li>
@@ -126,8 +135,11 @@ return (
                               </div>
                               <div className="card-search search-wrap" data-search="search">
                                  <div className="card-body">
-                                    <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
-                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
+                                    <div className="search-content">{/* 🎨 Palette: Added aria-label to icon-only close search button */}
+                                    <a href="#" className="search-back btn btn-icon toggle-search" data-target="search" aria-label="Close search"><em className="icon ni ni-arrow-left"></em></a>
+                                    {/* 🎨 Palette: Added aria-label to search input for accessibility */}
+                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" aria-label="Search members" />{/* 🎨 Palette: Added aria-label to icon-only search submit button */}
+                                    <button className="search-submit btn btn-icon" aria-label="Submit search"><em className="icon ni ni-search"></em></button></div>
                                  </div>
                               </div>
                            </div>
@@ -148,7 +160,8 @@ return (
                                        <ul className="nk-tb-actions gx-1 my-n1">
                                           <li>
                                              <div className="drodown">
-                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
+                                                {/* 🎨 Palette: Added aria-label to icon-only more options button */}
+                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown" aria-label="More bulk actions"><em className="icon ni ni-more-h"></em></a>
                                                 <div className="dropdown-menu dropdown-menu-end">
                                                    <ul className="link-list-opt no-bdr">
                                                       <li><a href="#"><em className="icon ni ni-mail"></em><span>Send Email to All</span></a></li>
@@ -191,7 +204,8 @@ return (
                                           <li className="nk-tb-action-hidden"><a href="#" className="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Suspend" data-bs-original-title="Suspend"><em className="icon ni ni-user-cross-fill"></em></a></li>
                                           <li>
                                              <div className="drodown">
-                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
+                                                {/* 🎨 Palette: Added aria-label to icon-only more options button */}
+                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown" aria-label="More member actions"><em className="icon ni ni-more-h"></em></a>
                                                 <div className="dropdown-menu dropdown-menu-end">
                                                    <ul className="link-list-opt no-bdr">
                                                       <li><a href="/demo7/pharmacy/members-profile-regular.html"><em className="icon ni ni-eye"></em><span>View Details</span></a></li>
