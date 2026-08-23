@@ -153,7 +153,8 @@ const Header = () => {
                                         <div className="dropdown-head"><span className="sub-title nk-dropdown-title">Recent
                                             Chats</span><a href="#">Setting</a></div>
                                         <div className="dropdown-body">
-                                            <ul className="chat-list">
+                                            {/* ⚡ Bolt Performance: Added lazy loading to below-the-fold avatar images to reduce initial page load size and improve LCP */}
+                                                <ul className="chat-list">
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar"><span>IH</span><span
                                                         className="status dot dot-lg dot-gray"></span></div>
@@ -191,7 +192,7 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar">
-                                                        <img src={B_avatarImage} alt="User Avatar" />
+                                                        <img loading="lazy" src={B_avatarImage} alt="User Avatar" />
 
                                                     </div>
                                                     <div className="chat-info">
@@ -209,7 +210,7 @@ const Header = () => {
                                                     <div className="chat-media user-avatar user-avatar-multiple">
                                                         <div className="user-avatar">
 
-                                                            <img src={C_avatarImage} alt="User Avatar" />
+                                                            <img loading="lazy" src={C_avatarImage} alt="User Avatar" />
 
                                                         </div>
                                                         <div className="user-avatar"><span>AB</span></div>
