@@ -19,6 +19,7 @@ export default function Attendence() {
                                         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
                                             <div class="dropdown-head"><span class="sub-title nk-dropdown-title">Recent Chats</span><a href="#">Setting</a></div>
                                             <div class="dropdown-body">
+                                                {/* ⚡ Bolt Performance: Added lazy loading to below-the-fold avatar images to reduce initial page load size and improve LCP */}
                                                 <ul class="chat-list">
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="/demo7/pharmacy/support.html">
@@ -52,7 +53,7 @@ export default function Attendence() {
                                                     </li>
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="/demo7/pharmacy/support.html">
-                                                            <div class="chat-media user-avatar"><img src="/demo7/images/avatar/b-sm.jpg" alt="" /></div>
+                                                            <div class="chat-media user-avatar"><img loading="lazy" src="/demo7/images/avatar/b-sm.jpg" alt="" /></div>
                                                             <div class="chat-info">
                                                                 <div class="chat-from">
                                                                     <div class="name">George Philips</div>
@@ -67,7 +68,7 @@ export default function Attendence() {
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="/demo7/pharmacy/support.html">
                                                             <div class="chat-media user-avatar user-avatar-multiple">
-                                                                <div class="user-avatar"><img src="/demo7/images/avatar/c-sm.jpg" alt="" /></div>
+                                                                <div class="user-avatar"><img loading="lazy" src="/demo7/images/avatar/c-sm.jpg" alt="" /></div>
                                                                 <div class="user-avatar"><span>AB</span></div>
                                                             </div>
                                                             <div class="chat-info">
@@ -84,7 +85,7 @@ export default function Attendence() {
                                                     </li>
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="/demo7/pharmacy/support.html">
-                                                            <div class="chat-media user-avatar"><img src="/demo7/images/avatar/a-sm.jpg" alt="" /><span class="status dot dot-lg dot-success"></span></div>
+                                                            <div class="chat-media user-avatar"><img loading="lazy" src="/demo7/images/avatar/a-sm.jpg" alt="" /><span class="status dot dot-lg dot-success"></span></div>
                                                             <div class="chat-info">
                                                                 <div class="chat-from">
                                                                     <div class="name">Larry Hughes</div>
