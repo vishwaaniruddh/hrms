@@ -190,8 +190,9 @@ const Header = () => {
                                                     </div>
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
-                                                    <div className="chat-media user-avatar">
-                                                        <img src={B_avatarImage} alt="User Avatar" />
+                                                    {/* ⚡ Bolt Performance: Added lazy loading to below-the-fold chat avatars to reduce initial page load size and improve LCP */}
+                                                        <div className="chat-media user-avatar">
+                                                        <img src={B_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                     </div>
                                                     <div className="chat-info">
@@ -209,7 +210,7 @@ const Header = () => {
                                                     <div className="chat-media user-avatar user-avatar-multiple">
                                                         <div className="user-avatar">
 
-                                                            <img src={C_avatarImage} alt="User Avatar" />
+                                                            <img src={C_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                         </div>
                                                         <div className="user-avatar"><span>AB</span></div>
@@ -229,7 +230,7 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar"><img
-                                                        src={A_avatarImage} alt="" /><span
+                                                        src={A_avatarImage} alt="" loading="lazy" /><span
                                                             className="status dot dot-lg dot-success"></span></div>
                                                     <div className="chat-info">
                                                         <div className="chat-from">
