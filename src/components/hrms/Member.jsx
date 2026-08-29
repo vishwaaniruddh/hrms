@@ -16,7 +16,7 @@ return (
                            </div>
                         </div>
                         <div className="nk-block-head-content">
-                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none">
+                           <a href="/demo7/pharmacy/add-member.html" className="btn btn-icon btn-primary d-md-none" aria-label="Add Member">
                            <em className="icon ni ni-plus"></em></a>
                            <a href="/demo7/pharmacy/add-member.html" className="btn btn-primary d-none d-md-inline-flex"><em className="icon ni ni-plus"></em><span>Add Member</span></a>
                         </div>
@@ -42,14 +42,14 @@ return (
                                  </div>
                                  <div className="card-tools me-n1">
                                     <ul className="btn-toolbar gx-1">
-                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search"><em className="icon ni ni-search"></em></a></li>
+                                       <li><a href="#" className="btn btn-icon search-toggle toggle-search" data-target="search" aria-label="Search Members"><em className="icon ni ni-search"></em></a></li>
                                        <li className="btn-toolbar-sep"></li>
                                        <li>
                                           <div className="toggle-wrap">
-                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-menu-right"></em></a>
+                                             <a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Toggle Menu"><em className="icon ni ni-menu-right"></em></a>
                                              <div className="toggle-content" data-content="cardTools">
                                                 <ul className="btn-toolbar gx-1">
-                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools"><em className="icon ni ni-arrow-left"></em></a></li>
+                                                   <li className="toggle-close"><a href="#" className="btn btn-icon btn-trigger toggle" data-target="cardTools" aria-label="Close Menu"><em className="icon ni ni-arrow-left"></em></a></li>
                                                    <li>
                                                       <div className="dropdown">
                                                          <a href="#" className="btn btn-trigger btn-icon dropdown-toggle" data-bs-toggle="dropdown">
