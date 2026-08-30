@@ -302,7 +302,7 @@ export default function Salary() {
                                                 <ul class="nk-tb-actions gx-1 my-n1">
                                                    <li>
                                                       <div class="drodown">
-                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                         <a href="#" aria-label="More options" class="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                          <div class="dropdown-menu dropdown-menu-end">
                                                             <ul class="link-list-opt no-bdr">
                                                                <li><a data-bs-toggle="modal" href="#editSalary"><em class="icon ni ni-edit"></em><span>Edit Selected</span></a></li>
@@ -331,7 +331,7 @@ export default function Salary() {
                                                 <ul class="nk-tb-actions gx-1">
                                                    <li>
                                                       <div class="drodown">
-                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                         <a href="#" aria-label="More options" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                          <div class="dropdown-menu dropdown-menu-end">
                                                             <ul class="link-list-opt no-bdr">
                                                                <li><a data-bs-toggle="modal" href="#addPay"><em class="icon ni ni-coin-alt"></em><span>Pay Now</span></a></li>
