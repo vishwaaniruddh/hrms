@@ -1,0 +1,4 @@
+## 2024-08-30 - Insecure Storage of Sensitive Data in LocalStorage
+**Vulnerability:** Sensitive authentication tokens, user IDs, usernames, and role permissions were being stored in `localStorage` in `src/utils/Common.jsx`.
+**Learning:** `localStorage` persists across browser sessions and tabs indefinitely until explicitly cleared, making sensitive data vulnerable to persistent Cross-Site Scripting (XSS) attacks or physical access theft long after a user finishes their activity. The original author seemingly intended to use session storage (as indicated by comments like `// return the token from the session storage`) but mistakenly implemented `localStorage`.
+**Prevention:** Always use `sessionStorage` or HttpOnly cookies for storing highly sensitive authentication and authorization state on the client side, ensuring that data lifecycle is strictly bound to the active browsing session.
