@@ -90,7 +90,7 @@ export default function MemberProfile() {
                                                                                 <div className="user-info"><span className="lead-text">Abu Bin Ishtiyak</span><span className="sub-text">info@softnio.com</span></div>
                                                                                 <div className="user-action">
                                                                                     <div className="dropdown">
-                                                                                        <a className="btn btn-icon btn-trigger me-n2" data-bs-toggle="dropdown" href="#"><em className="icon ni ni-more-v"></em></a>
+                                                                                        <a className="btn btn-icon btn-trigger me-n2" data-bs-toggle="dropdown" href="#" aria-label="More options"><em className="icon ni ni-more-v"></em></a>
                                                                                         <div className="dropdown-menu dropdown-menu-end">
                                                                                             <ul className="link-list-opt no-bdr">
                                                                                                 <li><a href="#"><em className="icon ni ni-camera-fill"></em><span>Change Photo</span></a></li>
