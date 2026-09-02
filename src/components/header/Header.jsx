@@ -191,7 +191,8 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar">
-                                                        <img src={B_avatarImage} alt="User Avatar" />
+                                                        {/* ⚡ Bolt: Lazy load below-the-fold image */}
+                                                        <img src={B_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                     </div>
                                                     <div className="chat-info">
@@ -209,7 +210,8 @@ const Header = () => {
                                                     <div className="chat-media user-avatar user-avatar-multiple">
                                                         <div className="user-avatar">
 
-                                                            <img src={C_avatarImage} alt="User Avatar" />
+                                                            {/* ⚡ Bolt: Lazy load below-the-fold image */}
+                                                            <img src={C_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                         </div>
                                                         <div className="user-avatar"><span>AB</span></div>
@@ -228,8 +230,9 @@ const Header = () => {
                                                     </div>
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
-                                                    <div className="chat-media user-avatar"><img
-                                                        src={A_avatarImage} alt="" /><span
+                                                    <div className="chat-media user-avatar">{/* ⚡ Bolt: Lazy load below-the-fold image */}
+                                                        <img
+                                                        src={A_avatarImage} alt="" loading="lazy" /><span
                                                             className="status dot dot-lg dot-success"></span></div>
                                                     <div className="chat-info">
                                                         <div className="chat-from">
@@ -346,20 +349,24 @@ const Header = () => {
                                 </a>
                                     <div className="dropdown-menu dropdown-menu-end dropdown-menu-s1">
                                         <ul className="language-list">
-                                            <li><a href="#" className="language-item"><img
+                                            <li><a href="#" className="language-item">{/* ⚡ Bolt: Lazy load below-the-fold image */}
+                                            <img
                                                 src={english} alt=""
-                                                className="language-flag" /><span
+                                                className="language-flag" loading="lazy" /><span
                                                     className="language-name">English</span></a></li>
-                                            <li><a href="#" className="language-item"><img
+                                            <li><a href="#" className="language-item">{/* ⚡ Bolt: Lazy load below-the-fold image */}
+                                            <img
                                                 src={spanish} alt=""
-                                                className="language-flag" /><span
+                                                className="language-flag" loading="lazy" /><span
                                                     className="language-name">Español</span></a></li>
-                                            <li><a href="#" className="language-item"><img src={french}
-                                                alt="" className="language-flag" /><span
+                                            <li><a href="#" className="language-item">{/* ⚡ Bolt: Lazy load below-the-fold image */}
+                                            <img src={french}
+                                                alt="" className="language-flag" loading="lazy" /><span
                                                     className="language-name">Français</span></a></li>
                                             <li><a href="#" className="language-item">
+                                                {/* ⚡ Bolt: Lazy load below-the-fold image */}
                                                 <img src={turkey}
-                                                    alt="" className="language-flag" />
+                                                    alt="" className="language-flag" loading="lazy" />
                                                 <span
                                                     className="language-name">Türkçe</span></a></li>
                                         </ul>
