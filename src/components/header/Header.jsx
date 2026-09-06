@@ -153,6 +153,7 @@ const Header = () => {
                                         <div className="dropdown-head"><span className="sub-title nk-dropdown-title">Recent
                                             Chats</span><a href="#">Setting</a></div>
                                         <div className="dropdown-body">
+                                            {/* ⚡ Bolt Performance: Added loading="lazy" to avatar images below to defer offscreen loading and improve initial load time */}
                                             <ul className="chat-list">
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar"><span>IH</span><span
@@ -191,7 +192,7 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar">
-                                                        <img src={B_avatarImage} alt="User Avatar" />
+                                                        <img src={B_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                     </div>
                                                     <div className="chat-info">
@@ -209,7 +210,7 @@ const Header = () => {
                                                     <div className="chat-media user-avatar user-avatar-multiple">
                                                         <div className="user-avatar">
 
-                                                            <img src={C_avatarImage} alt="User Avatar" />
+                                                            <img src={C_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                         </div>
                                                         <div className="user-avatar"><span>AB</span></div>
@@ -229,7 +230,7 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar"><img
-                                                        src={A_avatarImage} alt="" /><span
+                                                        src={A_avatarImage} alt="" loading="lazy" /><span
                                                             className="status dot dot-lg dot-success"></span></div>
                                                     <div className="chat-info">
                                                         <div className="chat-from">
