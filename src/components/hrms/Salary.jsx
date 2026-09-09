@@ -284,7 +284,7 @@ export default function Salary() {
                                           </div>
                                           <div class="card-search search-wrap" data-search="search">
                                              <div class="card-body">
-                                                <div class="search-content"><a href="#" class="search-back btn btn-icon toggle-search" data-target="search"><em class="icon ni ni-arrow-left"></em></a><input type="text" class="form-control border-transparent form-focus-none" placeholder="Search by name" /><button class="search-submit btn btn-icon"><em class="icon ni ni-search"></em></button></div>
+                                                <div class="search-content"><a href="#" aria-label="Close search" class="search-back btn btn-icon toggle-search" data-target="search"><em class="icon ni ni-arrow-left"></em></a><input type="text" class="form-control border-transparent form-focus-none" placeholder="Search by name" /><button aria-label="Submit search" class="search-submit btn btn-icon"><em class="icon ni ni-search"></em></button></div>
                                              </div>
                                           </div>
                                        </div>
