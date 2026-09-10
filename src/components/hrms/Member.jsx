@@ -148,7 +148,7 @@ return (
                                        <ul className="nk-tb-actions gx-1 my-n1">
                                           <li>
                                              <div className="drodown">
-                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
+                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger me-n1" data-bs-toggle="dropdown" aria-label="More options"><em className="icon ni ni-more-h"></em></a>
                                                 <div className="dropdown-menu dropdown-menu-end">
                                                    <ul className="link-list-opt no-bdr">
                                                       <li><a href="#"><em className="icon ni ni-mail"></em><span>Send Email to All</span></a></li>
@@ -191,7 +191,7 @@ return (
                                           <li className="nk-tb-action-hidden"><a href="#" className="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Suspend" data-bs-original-title="Suspend"><em className="icon ni ni-user-cross-fill"></em></a></li>
                                           <li>
                                              <div className="drodown">
-                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em className="icon ni ni-more-h"></em></a>
+                                                <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown" aria-label="More options"><em className="icon ni ni-more-h"></em></a>
                                                 <div className="dropdown-menu dropdown-menu-end">
                                                    <ul className="link-list-opt no-bdr">
                                                       <li><a href="/demo7/pharmacy/members-profile-regular.html"><em className="icon ni ni-eye"></em><span>View Details</span></a></li>
