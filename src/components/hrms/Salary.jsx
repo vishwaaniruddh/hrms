@@ -227,7 +227,8 @@ export default function Salary() {
                                  <form action="#">
                                     <div class="row gy-4">
                                        <div class="col-xxl-3 col-sm-6">
-                                          <div class="form-group"><label class="form-label" for="member">Member</label><input type="text" class="form-control" id="member" placeholder="Member" required="" /></div>
+                                          {/* 🛡️ Sentinel Security: Added input length limit to prevent DoS */}
+                                          <div class="form-group"><label class="form-label" for="member">Member</label><input type="text" class="form-control" id="member" placeholder="Member" maxLength="100" required="" /></div>
                                        </div>
                                        <div class="col-xxl-3 col-sm-6">
                                           <div class="form-group">
