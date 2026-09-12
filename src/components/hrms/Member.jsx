@@ -127,7 +127,7 @@ return (
                               <div className="card-search search-wrap" data-search="search">
                                  <div className="card-body">
                                     <div className="search-content"><a href="#" className="search-back btn btn-icon toggle-search" data-target="search"><em className="icon ni ni-arrow-left"></em></a>
-                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon"><em className="icon ni ni-search"></em></button></div>
+                                    <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search by Member name or email" /><button className="search-submit btn btn-icon" aria-label="Submit Search"><em className="icon ni ni-search"></em></button></div>
                                  </div>
                               </div>
                            </div>
