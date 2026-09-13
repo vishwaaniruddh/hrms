@@ -52,7 +52,8 @@ export default function Attendence() {
                                                     </li>
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="/demo7/pharmacy/support.html">
-                                                            <div class="chat-media user-avatar"><img src="/demo7/images/avatar/b-sm.jpg" alt="" /></div>
+                                                            <div class="chat-media user-avatar">{/* ⚡ Bolt Performance: Added loading="lazy" to avatar images below the fold to improve initial load speed */}
+                                                            <img src="/demo7/images/avatar/b-sm.jpg" alt="" loading="lazy" /></div>
                                                             <div class="chat-info">
                                                                 <div class="chat-from">
                                                                     <div class="name">George Philips</div>
@@ -67,7 +68,7 @@ export default function Attendence() {
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="/demo7/pharmacy/support.html">
                                                             <div class="chat-media user-avatar user-avatar-multiple">
-                                                                <div class="user-avatar"><img src="/demo7/images/avatar/c-sm.jpg" alt="" /></div>
+                                                                <div class="user-avatar"><img src="/demo7/images/avatar/c-sm.jpg" alt="" loading="lazy" /></div>
                                                                 <div class="user-avatar"><span>AB</span></div>
                                                             </div>
                                                             <div class="chat-info">
