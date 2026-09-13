@@ -191,7 +191,8 @@ const Header = () => {
                                                 </a></li>
                                                 <li className="chat-item"><a className="chat-link" href="apps-chats.html">
                                                     <div className="chat-media user-avatar">
-                                                        <img src={B_avatarImage} alt="User Avatar" />
+                                                        {/* ⚡ Bolt Performance: Added loading="lazy" to avatar images below the fold to improve initial load speed */}
+                                                        <img src={B_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                     </div>
                                                     <div className="chat-info">
@@ -209,7 +210,7 @@ const Header = () => {
                                                     <div className="chat-media user-avatar user-avatar-multiple">
                                                         <div className="user-avatar">
 
-                                                            <img src={C_avatarImage} alt="User Avatar" />
+                                                            <img src={C_avatarImage} alt="User Avatar" loading="lazy" />
 
                                                         </div>
                                                         <div className="user-avatar"><span>AB</span></div>
