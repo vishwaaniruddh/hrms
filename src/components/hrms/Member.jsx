@@ -1,5 +1,6 @@
 import React from 'react'
-const Member = () => {
+// ⚡ Bolt Performance Optimization: Wrapped static component in React.memo() to prevent expensive unnecessary re-renders of this large DOM tree.
+const Member = React.memo(() => {
 return (
 <div className="nk-main ">
    <div className="nk-wrap ">
@@ -260,5 +261,5 @@ return (
    </div>
 </div>
 );
-};
+});
 export default Member;
