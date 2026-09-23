@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: hrms-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        value: mysql-4e83ce-vishwaaniruddh-97b8.a.aivencloud.com
+      - key: DB_PORT
+        value: "22001"
+      - key: DB_NAME
+        value: defaultdb
+      - key: DB_USER
+        value: avnadmin
+      - key: DB_PASS
+        sync: false
