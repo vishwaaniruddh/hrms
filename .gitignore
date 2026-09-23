@@ -26,3 +26,8 @@ dist-ssr
 # Storage and cache
 storage/cache/*
 !storage/cache/.gitkeep
+
+# Local database visualizer tools
+backend/adminer.php
+backend/adminer.css
+backend/db_viewer.php
