@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Storage and cache
+storage/cache/*
+!storage/cache/.gitkeep

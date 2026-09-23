@@ -7,11 +7,10 @@ RUN docker-php-ext-install pdo pdo_mysql
 RUN a2enmod rewrite
 
 # Copy backend files into Apache document root
-COPY backend/ /var/www/html/api/
+COPY backend/ /var/www/html/
 
-# Configure Apache DocumentRoot to point to /var/www/html
-RUN sed -ri -e 's!/var/www/html!/var/www/html!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!/var/www/html!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+# Ensure proper permissions
+RUN chown -R www-data:www-data /var/www/html
 
 # Enable directory overrides for clean .htaccess routing
 RUN echo '<Directory /var/www/html>\n\

@@ -20,10 +20,17 @@ class Request
         $uri = $_SERVER['REQUEST_URI'] ?? '/';
         $uri = parse_url($uri, PHP_URL_PATH);
         
-        // Remove base path (e.g., /hrms/backend/api)
-        $basePath = '/hrms/backend/api';
-        if (str_starts_with($uri, $basePath)) {
-            $uri = substr($uri, strlen($basePath));
+        // Strip common base paths (supports local XAMPP and cloud deployments)
+        $basePaths = [
+            '/hrms/backend/api',
+            '/backend/api',
+            '/api'
+        ];
+        foreach ($basePaths as $bp) {
+            if (str_starts_with($uri, $bp)) {
+                $uri = substr($uri, strlen($bp));
+                break;
+            }
         }
         if (empty($uri)) {
             $uri = '/';

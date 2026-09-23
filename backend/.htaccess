@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Route /api/* requests to api/index.php
+RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+
+# Route root / to api/index.php
+RewriteRule ^$ api/index.php [QSA,L]
+
+# Route any other path to api/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ api/index.php [QSA,L]
