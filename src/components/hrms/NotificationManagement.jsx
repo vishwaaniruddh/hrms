@@ -942,7 +942,7 @@ export default function NotificationManagement() {
                                 type="button"
                                 className="btn btn-outline-light btn-xs"
                                 title="Simulate Webhook delivery callback (cycles sent -> delivered -> read)"
-                                onClick={() => handleSimulateReceipt(log)}
+                                aria-label="Simulate Webhook delivery callback (cycles sent -> delivered -> read)" onClick={() => handleSimulateReceipt(log)}
                                 style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
                               >
                                 <RotateCw size={11} />
@@ -954,7 +954,7 @@ export default function NotificationManagement() {
                                 type="button"
                                 className="btn btn-dim btn-light btn-xs"
                                 title="View raw payload & gateway response"
-                                onClick={() => setSelectedLog(log)}
+                                aria-label="View raw payload & gateway response" onClick={() => setSelectedLog(log)}
                                 style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}
                               >
                                 Payload

@@ -208,7 +208,7 @@ export default function LeaveManagement() {
           </p>
         </div>
         <div className="page-actions">
-          <button className="btn btn-outline" onClick={exportCSV} title="Export requests to CSV">
+          <button className="btn btn-outline" onClick={exportCSV} title="Export requests to CSV" aria-label="Export requests to CSV">
             <Download size={15} />
             <span>Export CSV</span>
           </button>
@@ -497,7 +497,7 @@ export default function LeaveManagement() {
                           className="btn btn-primary btn-sm"
                           style={{ padding: '0 0.65rem', height: '28px', fontSize: '0.75rem' }}
                           title="Approve Leave"
-                          onClick={() => setDecisionModal({ id: r.id, action: 'approve', request: r })}
+                          aria-label="Approve Leave" onClick={() => setDecisionModal({ id: r.id, action: 'approve', request: r })}
                         >
                           <Check size={13} />
                           <span>Approve</span>
@@ -506,7 +506,7 @@ export default function LeaveManagement() {
                           className="btn btn-outline btn-sm"
                           style={{ padding: '0 0.65rem', height: '28px', fontSize: '0.75rem', borderColor: 'var(--destructive)', color: 'var(--destructive)' }}
                           title="Reject Leave"
-                          onClick={() => setDecisionModal({ id: r.id, action: 'reject', request: r })}
+                          aria-label="Reject Leave" onClick={() => setDecisionModal({ id: r.id, action: 'reject', request: r })}
                         >
                           <X size={13} />
                           <span>Reject</span>
@@ -558,7 +558,7 @@ export default function LeaveManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setShowApplyModal(false)}
+                aria-label="Close dialog" onClick={() => setShowApplyModal(false)}
               >
                 <X size={16} />
               </button>

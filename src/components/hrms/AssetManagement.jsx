@@ -375,7 +375,7 @@ export default function AssetManagement() {
           </p>
         </div>
         <div className="page-actions">
-          <button className="btn btn-outline" onClick={exportCSV} title="Export current inventory to CSV">
+          <button className="btn btn-outline" onClick={exportCSV} title="Export current inventory to CSV" aria-label="Export current inventory to CSV">
             <Download size={15} />
             <span>Export CSV</span>
           </button>
@@ -662,7 +662,7 @@ export default function AssetManagement() {
                         className="btn btn-ghost btn-sm btn-icon"
                         style={{ width: '28px', height: '28px' }}
                         title="Custody Audit History"
-                        onClick={() => openHistoryModal(asset)}
+                        aria-label="Custody Audit History" onClick={() => openHistoryModal(asset)}
                       >
                         <History size={14} />
                       </button>
@@ -675,7 +675,7 @@ export default function AssetManagement() {
                               className="btn btn-outline btn-sm"
                               style={{ borderColor: 'oklch(0.65 0.16 162.5 / 0.4)', color: 'var(--primary)', height: '28px', padding: '0 0.65rem', fontSize: '0.75rem', whiteSpace: 'nowrap' }}
                               title="Assign to Staff"
-                              onClick={() => openAssignModal(asset)}
+                              aria-label="Assign to Staff" onClick={() => openAssignModal(asset)}
                             >
                               <UserCheck size={12} />
                               <span>Assign</span>
@@ -688,7 +688,7 @@ export default function AssetManagement() {
                               className="btn btn-outline btn-sm"
                               style={{ borderColor: 'oklch(0.78 0.16 75 / 0.4)', color: 'var(--warning)', height: '28px', padding: '0 0.65rem', fontSize: '0.75rem', whiteSpace: 'nowrap' }}
                               title="Return Asset to Storage"
-                              onClick={() => openReturnModal(asset)}
+                              aria-label="Return Asset to Storage" onClick={() => openReturnModal(asset)}
                             >
                               <ArrowRightLeft size={12} />
                               <span>Return</span>
@@ -700,7 +700,7 @@ export default function AssetManagement() {
                             className="btn btn-ghost btn-sm btn-icon"
                             style={{ color: 'var(--destructive)', width: '28px', height: '28px' }}
                             title="Delete Asset"
-                            onClick={() => setShowDeleteConfirm(asset.id)}
+                            aria-label="Delete Asset" onClick={() => setShowDeleteConfirm(asset.id)}
                           >
                             <Trash2 size={14} />
                           </button>
@@ -749,7 +749,7 @@ export default function AssetManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setShowAddModal(false)}
+                aria-label="Close dialog" onClick={() => setShowAddModal(false)}
               >
                 <X size={16} />
               </button>
@@ -908,7 +908,7 @@ export default function AssetManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setAssignModal(null)}
+                aria-label="Close dialog" onClick={() => setAssignModal(null)}
               >
                 <X size={16} />
               </button>
@@ -1042,7 +1042,7 @@ export default function AssetManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setReturnModal(null)}
+                aria-label="Close dialog" onClick={() => setReturnModal(null)}
               >
                 <X size={16} />
               </button>
@@ -1149,7 +1149,7 @@ export default function AssetManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setHistoryModal(null)}
+                aria-label="Close dialog" onClick={() => setHistoryModal(null)}
               >
                 <X size={16} />
               </button>

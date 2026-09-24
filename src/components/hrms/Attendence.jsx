@@ -156,7 +156,7 @@ export default function Attendance() {
           </p>
         </div>
         <div className="page-actions">
-          <button className="btn btn-outline" onClick={exportCSV} title="Export attendance records to CSV">
+          <button className="btn btn-outline" onClick={exportCSV} title="Export attendance records to CSV" aria-label="Export attendance records to CSV">
             <Download size={15} />
             <span>Export CSV</span>
           </button>
@@ -351,7 +351,7 @@ export default function Attendance() {
                       className="btn btn-ghost btn-sm btn-icon" 
                       style={{ color: 'hsl(var(--destructive))' }}
                       title="Delete Entry"
-                      onClick={() => setShowDeleteConfirm(r.id)}
+                      aria-label="Delete Entry" onClick={() => setShowDeleteConfirm(r.id)}
                     >
                       <Trash2 size={15} />
                     </button>
@@ -396,7 +396,7 @@ export default function Attendance() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setShowAddForm(false)}
+                aria-label="Close dialog" onClick={() => setShowAddForm(false)}
               >
                 <X size={16} />
               </button>

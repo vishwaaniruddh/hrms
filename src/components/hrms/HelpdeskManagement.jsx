@@ -1176,7 +1176,7 @@ export default function HelpdeskManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setIsCreateModalOpen(false)}
+                aria-label="Close dialog" onClick={() => setIsCreateModalOpen(false)}
                 title="Close modal"
               >
                 <X size={16} />
@@ -1359,7 +1359,7 @@ export default function HelpdeskManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setIsResolveModalOpen(false)}
+                aria-label="Close dialog" onClick={() => setIsResolveModalOpen(false)}
                 title="Close modal"
               >
                 <X size={16} />
@@ -1432,7 +1432,7 @@ export default function HelpdeskManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setIsCsatModalOpen(false)}
+                aria-label="Close dialog" onClick={() => setIsCsatModalOpen(false)}
                 title="Close modal"
               >
                 <X size={16} />
