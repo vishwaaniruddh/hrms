@@ -580,7 +580,7 @@ export default function ShiftManagement() {
               
               {/* Month Navigator */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', background: 'var(--muted)', borderRadius: 'calc(var(--radius) - 2px)', padding: '0.2rem 0.4rem', border: '1px solid var(--border)' }}>
-                <button
+                <button aria-label="Previous month"
                   type="button"
                   className="btn btn-icon btn-sm"
                   style={{ width: '28px', height: '28px', background: 'transparent', border: 'none', color: 'var(--foreground)' }}
@@ -595,7 +595,7 @@ export default function ShiftManagement() {
                 <span style={{ fontWeight: 600, fontSize: '0.825rem', minWidth: '130px', textAlign: 'center', color: 'var(--foreground)' }}>
                   {monthNames[selectedMonth - 1]} {selectedYear}
                 </span>
-                <button
+                <button aria-label="Next month"
                   type="button"
                   className="btn btn-icon btn-sm"
                   style={{ width: '28px', height: '28px', background: 'transparent', border: 'none', color: 'var(--foreground)' }}
@@ -928,7 +928,7 @@ export default function ShiftManagement() {
                   <p className="dialog-description">
                     {cellEditPopover.empName} · {cellEditPopover.date}
                   </p>
-                  <button className="dialog-close-btn" onClick={() => setCellEditPopover(null)}>
+                  <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setCellEditPopover(null)}>
                     <X size={16} />
                   </button>
                 </div>
@@ -1317,7 +1317,7 @@ export default function ShiftManagement() {
                 className="btn btn-outline" 
                 onClick={handleCalculateOvertime}
                 title="Recalculate attendance overtime logs"
-              >
+               aria-label="Recalculate attendance overtime logs">
                 <RefreshCw size={14} />
                 <span>Audit Attendance</span>
               </button>
@@ -1419,7 +1419,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Configure timing rules, break deductions, and night differential allowances.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsShiftModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsShiftModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1559,7 +1559,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Assign recurring shift schedules across staff members for an entire date range.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsBulkModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsBulkModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1673,7 +1673,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Propose a shift swap with a colleague for manager sign-off.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsSwapModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsSwapModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>

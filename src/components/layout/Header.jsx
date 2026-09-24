@@ -93,7 +93,7 @@ export default function Header({ onOpenSearch }) {
           className="header-search-bar" 
           onClick={onOpenSearch}
           title="Search (Ctrl+K)"
-        >
+         aria-label="Search (Ctrl+K)">
           <Search size={14} />
           <span>Search anything...</span>
           <kbd style={{ marginLeft: 'auto' }}>⌘K</kbd>

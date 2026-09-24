@@ -174,7 +174,7 @@ export default function Member() {
           <p>Manage full-time staff, contract personnel, roles, and status access.</p>
         </div>
         <div className="page-actions">
-          <button className="btn btn-outline" onClick={exportCSV} title="Export current view to CSV">
+          <button className="btn btn-outline" onClick={exportCSV} title="Export current view to CSV" aria-label="Export current view to CSV">
             <Download size={15} />
             <span>Export CSV</span>
           </button>
@@ -378,14 +378,14 @@ export default function Member() {
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         title="View Profile"
-                        onClick={() => navigate(`/hrms/memberProfile?id=${m.id}`)}
+                        aria-label="View Profile" onClick={() => navigate(`/hrms/memberProfile?id=${m.id}`)}
                       >
                         <Eye size={15} />
                       </button>
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         title="Edit Details"
-                        onClick={() => handleEdit(m)}
+                        aria-label="Edit Details" onClick={() => handleEdit(m)}
                       >
                         <Pencil size={15} />
                       </button>
@@ -393,7 +393,7 @@ export default function Member() {
                         className="btn btn-ghost btn-sm btn-icon" 
                         style={{ color: 'hsl(var(--destructive))' }}
                         title="Delete Employee"
-                        onClick={() => setShowDeleteConfirm(m.id)}
+                        aria-label="Delete Employee" onClick={() => setShowDeleteConfirm(m.id)}
                       >
                         <Trash2 size={15} />
                       </button>
@@ -439,7 +439,7 @@ export default function Member() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
-                onClick={() => setShowAddModal(false)}
+                aria-label="Close dialog" onClick={() => setShowAddModal(false)}
               >
                 <X size={16} />
               </button>

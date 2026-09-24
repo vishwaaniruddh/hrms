@@ -561,7 +561,7 @@ export default function ManagerApprovals() {
               <h2 className="dialog-title" style={{ margin: 0, fontSize: '1.125rem' }}>
                 Confirm {reviewModal.action}
               </h2>
-              <button type="button" className="btn-icon" onClick={() => setReviewModal(prev => ({ ...prev, isOpen: false }))}>
+              <button type="button" className="btn-icon" aria-label="Close review" onClick={() => setReviewModal(prev => ({ ...prev, isOpen: false }))}>
                 <X size={16} />
               </button>
             </div>

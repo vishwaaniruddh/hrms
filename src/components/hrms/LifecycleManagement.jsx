@@ -912,7 +912,7 @@ export default function LifecycleManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn" 
-                onClick={() => setIsDossierOpen(false)}
+                aria-label="Close dialog" onClick={() => setIsDossierOpen(false)}
               >
                 <X size={18} />
               </button>
@@ -1117,7 +1117,7 @@ export default function LifecycleManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn" 
-                onClick={() => setIsOnboardingModalOpen(false)}
+                aria-label="Close dialog" onClick={() => setIsOnboardingModalOpen(false)}
               >
                 <X size={18} />
               </button>
@@ -1193,7 +1193,7 @@ export default function LifecycleManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn" 
-                onClick={() => setIsOffboardingModalOpen(false)}
+                aria-label="Close dialog" onClick={() => setIsOffboardingModalOpen(false)}
               >
                 <X size={18} />
               </button>

@@ -158,7 +158,7 @@ export default function Sidebar({ onOpenSearch }) {
         className="sidebar-search-btn"
         onClick={onOpenSearch}
         title="Search anything (Ctrl+K)"
-      >
+       aria-label="Search anything (Ctrl+K)">
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <Search size={14} />
           <span>Quick search...</span>

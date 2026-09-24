@@ -192,7 +192,7 @@ export default function Reports() {
             onClick={fetchReport}
             disabled={loading}
             title="Refresh current report"
-          >
+           aria-label="Refresh current report">
             <RefreshCw size={14} className={loading ? 'spin' : ''} />
             <span>Refresh</span>
           </button>
