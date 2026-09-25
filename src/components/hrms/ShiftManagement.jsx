@@ -307,10 +307,12 @@ export default function ShiftManagement() {
   // Filtered Roster Employees
   const filteredEmployees = useMemo(() => {
     if (!rosterData || !rosterData.employees) return [];
+    // ⚡ Bolt Performance Optimization: Extract toLowerCase() out of loop
+    const q = searchQuery ? searchQuery.toLowerCase() : '';
     return rosterData.employees.filter(emp => {
       const matchesSearch = !searchQuery || 
-        emp.full_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        emp.designation.toLowerCase().includes(searchQuery.toLowerCase());
+        emp.full_name.toLowerCase().includes(q) ||
+        emp.designation.toLowerCase().includes(q);
       return matchesSearch;
     });
   }, [rosterData, searchQuery]);
