@@ -1097,7 +1097,7 @@ export default function PerformanceManagement() {
             <div className="dialog-header">
               <h2 className="dialog-title">Check-in Milestone Progress</h2>
               <p className="dialog-description">{checkinKrModal.kr.title}</p>
-              <button className="dialog-close-btn" onClick={() => setCheckinKrModal(null)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setCheckinKrModal(null)}>
                 <X size={16} />
               </button>
             </div>
@@ -1152,7 +1152,7 @@ export default function PerformanceManagement() {
             <div className="dialog-header">
               <h2 className="dialog-title">Submit Self-Evaluation Appraisal</h2>
               <p className="dialog-description">Evaluate your performance, accomplishments, and competencies for the cycle.</p>
-              <button className="dialog-close-btn" onClick={() => setSelfEvalModal(null)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setSelfEvalModal(null)}>
                 <X size={16} />
               </button>
             </div>
@@ -1230,7 +1230,7 @@ export default function PerformanceManagement() {
             <div className="dialog-header">
               <h2 className="dialog-title">Manager Appraisal & 9-Box Talent Calibration</h2>
               <p className="dialog-description">Reviewing: {managerEvalModal.member_name} ({managerEvalModal.designation})</p>
-              <button className="dialog-close-btn" onClick={() => setManagerEvalModal(null)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setManagerEvalModal(null)}>
                 <X size={16} />
               </button>
             </div>
@@ -1357,7 +1357,7 @@ export default function PerformanceManagement() {
                 <h2 className="dialog-title">Appraisal Scorecard & Certificate</h2>
               </div>
               <p className="dialog-description">{viewScorecardModal.cycle_title}</p>
-              <button className="dialog-close-btn" onClick={() => setViewScorecardModal(null)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setViewScorecardModal(null)}>
                 <X size={16} />
               </button>
             </div>
@@ -1455,7 +1455,7 @@ export default function PerformanceManagement() {
             <div className="dialog-header">
               <h2 className="dialog-title">Create Strategic Objective (OKR)</h2>
               <p className="dialog-description">Assign high-impact goals with measurable key result milestones.</p>
-              <button className="dialog-close-btn" onClick={() => setShowCreateOkrModal(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowCreateOkrModal(false)}>
                 <X size={16} />
               </button>
             </div>
