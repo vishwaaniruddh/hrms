@@ -802,7 +802,7 @@ export default function EmployeeSelfService() {
             <div className="dialog-header">
               <h3 className="dialog-title">Submit Leave Application</h3>
               <p className="dialog-description">Your request will be routed to your manager for approval.</p>
-              <button className="dialog-close-btn" onClick={() => setIsLeaveModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsLeaveModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -911,7 +911,7 @@ export default function EmployeeSelfService() {
             <div className="dialog-header">
               <h3 className="dialog-title">File Expense Reimbursement</h3>
               <p className="dialog-description">Submit receipts for business travel, equipment, or operational expenses.</p>
-              <button className="dialog-close-btn" onClick={() => setIsClaimModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsClaimModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1012,7 +1012,7 @@ export default function EmployeeSelfService() {
                 <Building2 size={18} style={{ color: 'var(--primary)' }} />
                 <h3 className="dialog-title">Itemized Payslip Statement</h3>
               </div>
-              <button className="dialog-close-btn" onClick={() => setIsPayslipModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsPayslipModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>

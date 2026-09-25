@@ -898,9 +898,9 @@ export default function Salary({ defaultTab = 'salaries' }) {
                             )}
 
                             <button
-                              className="btn btn-ghost btn-sm btn-icon"
+                              className="btn btn-ghost btn-sm btn-icon" aria-label="Delete record" title="Delete record"
                               style={{ color: 'hsl(var(--destructive))' }}
-                              title="Delete record"
+
                               onClick={() => setShowDeleteConfirm(s.id)}
                             >
                               <Trash2 size={14} />
@@ -1182,9 +1182,9 @@ export default function Salary({ defaultTab = 'salaries' }) {
                         <td style={{ textAlign: 'right' }}>
                           {!comp.is_mandatory && (
                             <button
-                              className="btn btn-ghost btn-sm btn-icon"
+                              className="btn btn-ghost btn-sm btn-icon" aria-label="Delete component" title="Delete component"
                               style={{ color: 'hsl(var(--destructive))' }}
-                              title="Delete component"
+
                               onClick={() => handleDeleteComponent(comp.id)}
                             >
                               <Trash2 size={13} />
@@ -1515,7 +1515,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                 <h2 className="dialog-title">Generate Itemized Payroll Slip</h2>
                 <p className="dialog-description">Live multi-tier calculation for Permanent staff, Contractors, and Intern Stipends.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowGenerateModal(false)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowGenerateModal(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1739,7 +1739,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                   <h2 className="dialog-title">Official Itemized Payslip</h2>
                   <p className="dialog-description">Ref: PAY-{showSlipModal.id.toString().padStart(5, '0')} • {showSlipModal.salary_date}</p>
                 </div>
-                <button type="button" className="dialog-close-btn" onClick={() => setShowSlipModal(null)}>
+                <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowSlipModal(null)}>
                   <X size={16} />
                 </button>
               </div>
@@ -1881,7 +1881,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                 <h2 className="dialog-title">Configure Salary Profile</h2>
                 <p className="dialog-description">Set employment tier, base salary / intern stipend, and bank transfer credentials.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowStructModal(false)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowStructModal(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -2018,7 +2018,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                 <h2 className="dialog-title">New Pay Master Component</h2>
                 <p className="dialog-description">Add an allowance, statutory deduction, variable perk, or intern stipend component.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowCompModal(false)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowCompModal(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -2169,7 +2169,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                 <h2 className="dialog-title">Submit Reimbursement Claim</h2>
                 <p className="dialog-description">Submit medical expenses, travel fare, client bills, or work perks for approval.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowClaimModal(false)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowClaimModal(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -2291,7 +2291,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                 <h2 className="dialog-title">Execute Salary Disbursement</h2>
                 <p className="dialog-description">Settle {formatCurrency(showPayModal.net_salary || showPayModal.total_salary, showPayModal.currency)} to {showPayModal.member_name}.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowPayModal(null)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowPayModal(null)}>
                 <X size={16} />
               </button>
             </div>
@@ -2355,7 +2355,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
           <div className="dialog-content" style={{ maxWidth: '420px' }} onClick={e => e.stopPropagation()}>
             <div className="dialog-header">
               <h2 className="dialog-title">Delete Payroll Slip</h2>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowDeleteConfirm(null)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" onClick={() => setShowDeleteConfirm(null)}>
                 <X size={16} />
               </button>
             </div>

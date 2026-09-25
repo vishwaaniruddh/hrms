@@ -1,0 +1,1 @@
+## 2024-05-18 - Missing ARIA Labels on Icon Buttons\n**Learning:** In many HRMS components (like Salary, Attendance, etc.), icon-only buttons (such as dialog close buttons or delete/trash buttons) are missing `aria-label` attributes or `title` tags, making them inaccessible to screen readers.\n**Action:** Add `aria-label` to these interactive elements to improve accessibility.
