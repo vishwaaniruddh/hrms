@@ -102,7 +102,10 @@ class HelpdeskController extends Controller
                     if (class_exists('NotificationService')) {
                         $notif = new NotificationService();
                         $db = Database::getInstance();
-                        $requester = $db->query("SELECT full_name, phone FROM users WHERE id = {$body['user_id']}")->fetch(PDO::FETCH_ASSOC);
+                        // 🛡️ Sentinel: Security Enhancement - Fixed SQL injection vulnerability by using prepared statement
+                        $stmt = $db->prepare("SELECT full_name, phone FROM users WHERE id = ?");
+                        $stmt->execute([$body['user_id']]);
+                        $requester = $stmt->fetch(PDO::FETCH_ASSOC);
                         if ($requester && !empty($requester['phone'])) {
                             $notif->sendCustomMessage(
                                 $body['user_id'],
@@ -149,7 +152,10 @@ class HelpdeskController extends Controller
                     if (class_exists('NotificationService')) {
                         $notif = new NotificationService();
                         $db = Database::getInstance();
-                        $requester = $db->query("SELECT full_name, phone FROM users WHERE id = {$ticket['user_id']}")->fetch(PDO::FETCH_ASSOC);
+                        // 🛡️ Sentinel: Security Enhancement - Fixed SQL injection vulnerability by using prepared statement
+                        $stmt = $db->prepare("SELECT full_name, phone FROM users WHERE id = ?");
+                        $stmt->execute([$ticket['user_id']]);
+                        $requester = $stmt->fetch(PDO::FETCH_ASSOC);
                         if ($requester && !empty($requester['phone'])) {
                             $preview = substr($body['message'], 0, 100);
                             $notif->sendCustomMessage(
@@ -194,7 +200,10 @@ class HelpdeskController extends Controller
                     if (class_exists('NotificationService')) {
                         $notif = new NotificationService();
                         $db = Database::getInstance();
-                        $requester = $db->query("SELECT full_name, phone FROM users WHERE id = {$ticket['user_id']}")->fetch(PDO::FETCH_ASSOC);
+                        // 🛡️ Sentinel: Security Enhancement - Fixed SQL injection vulnerability by using prepared statement
+                        $stmt = $db->prepare("SELECT full_name, phone FROM users WHERE id = ?");
+                        $stmt->execute([$ticket['user_id']]);
+                        $requester = $stmt->fetch(PDO::FETCH_ASSOC);
                         if ($requester && !empty($requester['phone'])) {
                             $notif->sendCustomMessage(
                                 $ticket['user_id'],
