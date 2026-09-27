@@ -380,7 +380,10 @@ class ShiftModel
     {
         $status = strtolower($action) === 'approved' ? 'Approved' : 'Rejected';
 
-        $swap = $this->db->query("SELECT * FROM `shift_swaps` WHERE id = {$swapId}")->fetch();
+        // 🛡️ Sentinel: Security Enhancement - Prevent SQL injection by using prepared statements instead of string concatenation
+        $stmt_swap = $this->db->prepare("SELECT * FROM `shift_swaps` WHERE id = :id");
+        $stmt_swap->execute([':id' => $swapId]);
+        $swap = $stmt_swap->fetch();
         if (!$swap) return false;
 
         $stmt = $this->db->prepare("
@@ -405,9 +408,13 @@ class ShiftModel
             $date = $swap['swap_date'];
 
             // Requester's original roster
-            $reqRoster = $this->db->query("SELECT * FROM `shift_rosters` WHERE user_id = {$requesterId} AND date = '{$date}' LIMIT 1")->fetch();
+            $stmt_req = $this->db->prepare("SELECT * FROM `shift_rosters` WHERE user_id = :uid AND date = :date LIMIT 1");
+            $stmt_req->execute([':uid' => $requesterId, ':date' => $date]);
+            $reqRoster = $stmt_req->fetch();
             // Receiver's roster on that date
-            $recRoster = $this->db->query("SELECT * FROM `shift_rosters` WHERE user_id = {$receiverId} AND date = '{$date}' LIMIT 1")->fetch();
+            $stmt_rec = $this->db->prepare("SELECT * FROM `shift_rosters` WHERE user_id = :uid AND date = :date LIMIT 1");
+            $stmt_rec->execute([':uid' => $receiverId, ':date' => $date]);
+            $recRoster = $stmt_rec->fetch();
 
             if ($reqRoster && $recRoster) {
                 // Exchange shift IDs
