@@ -380,7 +380,9 @@ class ShiftModel
     {
         $status = strtolower($action) === 'approved' ? 'Approved' : 'Rejected';
 
-        $swap = $this->db->query("SELECT * FROM `shift_swaps` WHERE id = {$swapId}")->fetch();
+        $swapStmt = $this->db->prepare("SELECT * FROM `shift_swaps` WHERE id = ?");
+        $swapStmt->execute([$swapId]);
+        $swap = $swapStmt->fetch();
         if (!$swap) return false;
 
         $stmt = $this->db->prepare("
@@ -405,9 +407,13 @@ class ShiftModel
             $date = $swap['swap_date'];
 
             // Requester's original roster
-            $reqRoster = $this->db->query("SELECT * FROM `shift_rosters` WHERE user_id = {$requesterId} AND date = '{$date}' LIMIT 1")->fetch();
+            $reqRosterStmt = $this->db->prepare("SELECT * FROM `shift_rosters` WHERE user_id = ? AND date = ? LIMIT 1");
+            $reqRosterStmt->execute([$requesterId, $date]);
+            $reqRoster = $reqRosterStmt->fetch();
             // Receiver's roster on that date
-            $recRoster = $this->db->query("SELECT * FROM `shift_rosters` WHERE user_id = {$receiverId} AND date = '{$date}' LIMIT 1")->fetch();
+            $recRosterStmt = $this->db->prepare("SELECT * FROM `shift_rosters` WHERE user_id = ? AND date = ? LIMIT 1");
+            $recRosterStmt->execute([$receiverId, $date]);
+            $recRoster = $recRosterStmt->fetch();
 
             if ($reqRoster && $recRoster) {
                 // Exchange shift IDs
