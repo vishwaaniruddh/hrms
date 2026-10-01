@@ -1,0 +1,3 @@
+## 2025-01-01 - Header Component Unnecessary Array Re-allocation
+**Learning:** In the `Header.jsx` component, a helper function `getBreadcrumbs` was returning a new array reference on every render. Given that the Header also contains Theme toggle and Persona Switch controls that trigger re-renders, the breadcrumbs array was being needlessly re-evaluated and re-allocated.
+**Action:** Use `useMemo` to memoize the result of expensive helper functions or computations that return new references, especially inside components that are susceptible to frequent state-driven re-renders. Ensure the dependency array accurately reflects only the values that should cause a recalculation (e.g. `location.pathname`).
