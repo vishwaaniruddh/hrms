@@ -257,7 +257,9 @@ class HelpdeskModel {
 
         // Generate Ticket Number (TKT-YYYY-XXXX)
         $year = date('Y');
-        $seq = $this->db->query("SELECT COUNT(*) + 1 FROM `helpdesk_tickets` WHERE YEAR(created_at) = {$year}")->fetchColumn();
+        $stmt = $this->db->prepare("SELECT COUNT(*) + 1 FROM `helpdesk_tickets` WHERE YEAR(created_at) = :year");
+        $stmt->execute(['year' => $year]);
+        $seq = $stmt->fetchColumn();
         $ticketNumber = 'TKT-' . $year . '-' . str_pad($seq, 4, '0', STR_PAD_LEFT);
 
         $stmt = $this->db->prepare("
@@ -312,15 +314,19 @@ class HelpdeskModel {
         $msgId = (int)$this->db->lastInsertId();
 
         // Check if ticket status should transition
-        $ticket = $this->db->query("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = {$ticketId}")->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->db->prepare("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = :ticket_id");
+        $stmt->execute(['ticket_id' => $ticketId]);
+        $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($ticket) {
             // If sender is NOT ticket creator and status is Open, change to In Progress
             if ($userId != $ticket['user_id'] && $ticket['status'] === 'Open' && !$isInternalNote) {
-                $this->db->exec("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = {$ticketId}");
+                $updateStmt = $this->db->prepare("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = :ticket_id");
+                $updateStmt->execute(['ticket_id' => $ticketId]);
             }
             // If sender is employee and status was Waiting on Employee, change to In Progress
             if ($userId == $ticket['user_id'] && $ticket['status'] === 'Waiting on Employee') {
-                $this->db->exec("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = {$ticketId}");
+                $updateStmt = $this->db->prepare("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = :ticket_id");
+                $updateStmt->execute(['ticket_id' => $ticketId]);
             }
         }
 
