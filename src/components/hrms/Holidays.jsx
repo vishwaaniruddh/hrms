@@ -410,13 +410,13 @@ export default function Holidays() {
             flexWrap: 'wrap'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-              <button className="btn btn-outline btn-sm btn-icon" onClick={handlePrevMonth} title="Previous month">
+              <button className="btn btn-outline btn-sm btn-icon" onClick={handlePrevMonth} title="Previous month" aria-label="Previous month">
                 <ChevronLeft size={16} />
               </button>
               <h2 style={{ fontSize: '1.05rem', fontWeight: 700, minWidth: '160px', textAlign: 'center' }}>
                 {monthName}
               </h2>
-              <button className="btn btn-outline btn-sm btn-icon" onClick={handleNextMonth} title="Next month">
+              <button className="btn btn-outline btn-sm btn-icon" onClick={handleNextMonth} title="Next month" aria-label="Next month">
                 <ChevronRight size={16} />
               </button>
 
@@ -769,6 +769,7 @@ export default function Holidays() {
                               style={{ color: 'hsl(var(--destructive))' }}
                               title="Delete holiday"
                               onClick={() => handleDeleteHoliday(h.id)}
+                              aria-label="Delete holiday"
                             >
                               <Trash2 size={13} />
                             </button>
@@ -795,7 +796,7 @@ export default function Holidays() {
                 <h2 className="dialog-title">{editHoliday ? 'Edit Company Holiday' : 'Schedule Company Holiday'}</h2>
                 <p className="dialog-description">Configure official statutory holidays, optional leaves, or team observances.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowAddModal(false)}>
+              <button type="button" className="dialog-close-btn" onClick={() => setShowAddModal(false)} aria-label="Close dialog">
                 <X size={16} />
               </button>
             </div>
@@ -890,7 +891,7 @@ export default function Holidays() {
                   </h2>
                   <p className="dialog-description">Day schedule, holidays, and team out-of-office roster.</p>
                 </div>
-                <button type="button" className="dialog-close-btn" onClick={() => setSelectedDayEvents(null)}>
+                <button type="button" className="dialog-close-btn" onClick={() => setSelectedDayEvents(null)} aria-label="Close dialog">
                   <X size={16} />
                 </button>
               </div>
