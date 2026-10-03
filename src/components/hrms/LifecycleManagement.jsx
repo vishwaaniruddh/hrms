@@ -911,7 +911,7 @@ export default function LifecycleManagement() {
 
               <button 
                 type="button" 
-                className="dialog-close-btn" 
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsDossierOpen(false)}
               >
                 <X size={18} />
@@ -1116,7 +1116,7 @@ export default function LifecycleManagement() {
               <h2 className="dialog-title">Initiate New Hire Onboarding</h2>
               <button 
                 type="button" 
-                className="dialog-close-btn" 
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsOnboardingModalOpen(false)}
               >
                 <X size={18} />
@@ -1192,7 +1192,7 @@ export default function LifecycleManagement() {
               <h2 className="dialog-title">Submit Resignation & Exit Clearance</h2>
               <button 
                 type="button" 
-                className="dialog-close-btn" 
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsOffboardingModalOpen(false)}
               >
                 <X size={18} />
