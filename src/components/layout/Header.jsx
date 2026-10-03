@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Search, Moon, Sun, ChevronRight, UserCheck } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
@@ -26,7 +26,9 @@ export default function Header({ onOpenSearch }) {
   };
 
   // Compute breadcrumbs
-  const getBreadcrumbs = () => {
+  // ⚡ Bolt Performance Optimization: Memoized breadcrumbs to prevent unnecessary re-computations on every render
+  const crumbs = useMemo(() => {
+    const getBreadcrumbs = () => {
     const path = location.pathname;
     if (path.includes('ess')) {
       return ['My Workspace', 'Employee Self-Service (ESS)'];
@@ -62,7 +64,8 @@ export default function Header({ onOpenSearch }) {
     return ['People', 'Employees', 'Directory'];
   };
 
-  const crumbs = getBreadcrumbs();
+    return getBreadcrumbs();
+  }, [location.pathname]);
 
   return (
     <header className="app-header">
