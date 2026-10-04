@@ -166,9 +166,13 @@ export default function Recruitment() {
   }, [activeView, selectedJobId, departmentFilter, searchTerm]);
 
   useEffect(() => {
-    fetchStats();
     fetchOpenings();
-  }, [fetchStats, fetchOpenings]);
+  }, [fetchOpenings]);
+
+  // ⚡ Bolt Performance Optimization: Fetch stats only on mount (and CRUD) instead of on every department/search filter change
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   useEffect(() => {
     fetchCandidates();

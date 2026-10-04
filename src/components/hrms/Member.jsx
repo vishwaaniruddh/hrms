@@ -79,8 +79,12 @@ export default function Member() {
 
   useEffect(() => { 
     fetchMembers(); 
-    fetchStats();
   }, [fetchMembers]);
+
+  // ⚡ Bolt Performance Optimization: Fetch stats only on mount instead of on every search/filter change to reduce unnecessary API calls
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   useEffect(() => {
     rolesApi.getAll().then(res => setRoles(res.data || [])).catch(() => {});

@@ -149,9 +149,13 @@ export default function LifecycleManagement() {
   }, []);
 
   useEffect(() => {
-    fetchStats();
     fetchMembers();
-  }, [fetchStats, fetchMembers]);
+  }, [fetchMembers]);
+
+  // ⚡ Bolt Performance Optimization: Fetch stats only on mount instead of with fetchMembers which might depend on other changing criteria
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   useEffect(() => {
     if (activeTab === 'clearances') {
