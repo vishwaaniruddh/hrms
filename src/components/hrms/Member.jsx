@@ -378,24 +378,27 @@ export default function Member() {
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         title="View Profile"
+                        aria-label="View Profile"
                         onClick={() => navigate(`/hrms/memberProfile?id=${m.id}`)}
                       >
-                        <Eye size={15} />
+                        <Eye size={15} aria-hidden="true" />
                       </button>
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         title="Edit Details"
+                        aria-label="Edit Details"
                         onClick={() => handleEdit(m)}
                       >
-                        <Pencil size={15} />
+                        <Pencil size={15} aria-hidden="true" />
                       </button>
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         style={{ color: 'hsl(var(--destructive))' }}
                         title="Delete Employee"
+                        aria-label="Delete Employee"
                         onClick={() => setShowDeleteConfirm(m.id)}
                       >
-                        <Trash2 size={15} />
+                        <Trash2 size={15} aria-hidden="true" />
                       </button>
                     </div>
                   </td>
@@ -439,9 +442,10 @@ export default function Member() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
+                aria-label="Close modal"
                 onClick={() => setShowAddModal(false)}
               >
-                <X size={16} />
+                <X size={16} aria-hidden="true" />
               </button>
             </div>
 
