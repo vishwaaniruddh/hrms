@@ -115,29 +115,35 @@ export default function ManagerApprovals() {
   // Filter lists based on search
   const filteredLeaves = useMemo(() => {
     if (!inbox?.leaves) return [];
+    // ⚡ Bolt Performance Optimization: Extract toLowerCase out of loop
+    const lowerSearchTerm = searchTerm ? searchTerm.toLowerCase() : '';
     return inbox.leaves.filter(l => 
-      l.employee_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      l.leave_type_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      l.reason?.toLowerCase().includes(searchTerm.toLowerCase())
+      l.employee_name?.toLowerCase().includes(lowerSearchTerm) ||
+      l.leave_type_name?.toLowerCase().includes(lowerSearchTerm) ||
+      l.reason?.toLowerCase().includes(lowerSearchTerm)
     );
   }, [inbox?.leaves, searchTerm]);
 
   const filteredClaims = useMemo(() => {
     if (!inbox?.claims) return [];
+    // ⚡ Bolt Performance Optimization: Extract toLowerCase out of loop
+    const lowerSearchTerm = searchTerm ? searchTerm.toLowerCase() : '';
     return inbox.claims.filter(c => 
-      c.employee_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      c.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      c.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      c.claim_number?.toLowerCase().includes(searchTerm.toLowerCase())
+      c.employee_name?.toLowerCase().includes(lowerSearchTerm) ||
+      c.title?.toLowerCase().includes(lowerSearchTerm) ||
+      c.category?.toLowerCase().includes(lowerSearchTerm) ||
+      c.claim_number?.toLowerCase().includes(lowerSearchTerm)
     );
   }, [inbox?.claims, searchTerm]);
 
   const filteredClearances = useMemo(() => {
     if (!inbox?.clearances) return [];
+    // ⚡ Bolt Performance Optimization: Extract toLowerCase out of loop
+    const lowerSearchTerm = searchTerm ? searchTerm.toLowerCase() : '';
     return inbox.clearances.filter(cl => 
-      cl.employee_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cl.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cl.department?.toLowerCase().includes(searchTerm.toLowerCase())
+      cl.employee_name?.toLowerCase().includes(lowerSearchTerm) ||
+      cl.title?.toLowerCase().includes(lowerSearchTerm) ||
+      cl.department?.toLowerCase().includes(lowerSearchTerm)
     );
   }, [inbox?.clearances, searchTerm]);
 

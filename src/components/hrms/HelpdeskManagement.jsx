@@ -322,6 +322,8 @@ export default function HelpdeskManagement() {
 
   // Filtered Tickets
   const filteredTickets = useMemo(() => {
+    // ⚡ Bolt Performance Optimization: Extract search query lowercase operation outside the filter loop
+    const q = searchQuery.trim() ? searchQuery.toLowerCase() : '';
     return tickets.filter(ticket => {
       // Tab based segregation
       if (activeTab === 'my-tickets') {
@@ -340,8 +342,7 @@ export default function HelpdeskManagement() {
       if (categoryFilter !== 'All' && String(ticket.category_id) !== String(categoryFilter)) return false;
 
       // Search Query
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
+      if (q) {
         const matchesSubject = ticket.subject?.toLowerCase().includes(q);
         const matchesNumber = ticket.ticket_number?.toLowerCase().includes(q);
         const matchesRequester = ticket.requester_name?.toLowerCase().includes(q);
