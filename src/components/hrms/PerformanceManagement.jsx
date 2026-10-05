@@ -155,11 +155,12 @@ export default function PerformanceManagement() {
 
   // Filtered OKRs
   const filteredOkrs = useMemo(() => {
+    // ⚡ Bolt Performance Optimization: Extract toLowerCase out of loop
+    const q = searchQuery ? searchQuery.toLowerCase() : '';
     return okrs.filter(okr => {
       if (quarterFilter !== 'All' && okr.quarter !== quarterFilter) return false;
       if (categoryFilter !== 'All' && okr.category !== categoryFilter) return false;
-      if (searchQuery) {
-        const q = searchQuery.toLowerCase();
+      if (q) {
         const matchTitle = okr.objective_title.toLowerCase().includes(q);
         const matchName = okr.member_name?.toLowerCase().includes(q);
         if (!matchTitle && !matchName) return false;
@@ -170,10 +171,11 @@ export default function PerformanceManagement() {
 
   // Filtered Reviews
   const filteredReviews = useMemo(() => {
+    // ⚡ Bolt Performance Optimization: Extract toLowerCase out of loop
+    const q = searchQuery ? searchQuery.toLowerCase() : '';
     return reviews.filter(rev => {
       if (reviewStatusFilter !== 'All' && rev.status !== reviewStatusFilter) return false;
-      if (searchQuery) {
-        const q = searchQuery.toLowerCase();
+      if (q) {
         const matchName = rev.member_name?.toLowerCase().includes(q);
         const matchBox = rev.nine_box_quadrant?.toLowerCase().includes(q);
         if (!matchName && !matchBox) return false;
