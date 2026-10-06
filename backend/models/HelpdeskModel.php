@@ -312,15 +312,20 @@ class HelpdeskModel {
         $msgId = (int)$this->db->lastInsertId();
 
         // Check if ticket status should transition
-        $ticket = $this->db->query("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = {$ticketId}")->fetch(PDO::FETCH_ASSOC);
+        // 🛡️ Sentinel: Security Enhancement - Prevent SQL Injection by using prepared statements instead of string interpolation.
+        $stmtTicket = $this->db->prepare("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = :ticket_id");
+        $stmtTicket->execute([':ticket_id' => $ticketId]);
+        $ticket = $stmtTicket->fetch(PDO::FETCH_ASSOC);
         if ($ticket) {
             // If sender is NOT ticket creator and status is Open, change to In Progress
             if ($userId != $ticket['user_id'] && $ticket['status'] === 'Open' && !$isInternalNote) {
-                $this->db->exec("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = {$ticketId}");
+                $stmtUpdate = $this->db->prepare("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = :ticket_id");
+                $stmtUpdate->execute([':ticket_id' => $ticketId]);
             }
             // If sender is employee and status was Waiting on Employee, change to In Progress
             if ($userId == $ticket['user_id'] && $ticket['status'] === 'Waiting on Employee') {
-                $this->db->exec("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = {$ticketId}");
+                $stmtUpdate = $this->db->prepare("UPDATE `helpdesk_tickets` SET `status` = 'In Progress', `updated_at` = NOW() WHERE id = :ticket_id");
+                $stmtUpdate->execute([':ticket_id' => $ticketId]);
             }
         }
 
