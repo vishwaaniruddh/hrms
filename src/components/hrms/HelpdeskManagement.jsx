@@ -320,7 +320,18 @@ export default function HelpdeskManagement() {
     }
   };
 
+
+  // ⚡ Bolt Performance Optimization: Memoize tab counts to prevent O(N) array traversals on every render
+  const myTicketsCount = useMemo(() => {
+    return tickets.filter(t => t.user_id === currentUser?.id).length;
+  }, [tickets, currentUser?.id]);
+
+  const grievanceTicketsCount = useMemo(() => {
+    return tickets.filter(t => t.category_code === 'GRIEVANCE' || t.is_confidential).length;
+  }, [tickets]);
+
   // Filtered Tickets
+
   const filteredTickets = useMemo(() => {
     return tickets.filter(ticket => {
       // Tab based segregation
@@ -581,7 +592,7 @@ export default function HelpdeskManagement() {
           <User size={14} />
           <span>My Tickets</span>
           <span className="tab-count">
-            {tickets.filter(t => t.user_id === currentUser?.id).length}
+            {myTicketsCount}
           </span>
         </button>
 
@@ -593,7 +604,7 @@ export default function HelpdeskManagement() {
           <ShieldAlert size={14} />
           <span>Confidential Grievance Desk</span>
           <span className="tab-count" style={{ color: '#ef4444' }}>
-            {tickets.filter(t => t.category_code === 'GRIEVANCE' || t.is_confidential).length}
+            {grievanceTicketsCount}
           </span>
         </button>
 
