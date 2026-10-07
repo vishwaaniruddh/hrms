@@ -376,21 +376,21 @@ export default function Member() {
                   <td style={{ textAlign: 'right', position: 'relative' }}>
                     <div style={{ display: 'inline-flex', gap: '0.35rem' }}>
                       <button 
-                        className="btn btn-ghost btn-sm btn-icon" 
+                        className="btn btn-ghost btn-sm btn-icon" aria-label="View Profile"
                         title="View Profile"
                         onClick={() => navigate(`/hrms/memberProfile?id=${m.id}`)}
                       >
                         <Eye size={15} />
                       </button>
                       <button 
-                        className="btn btn-ghost btn-sm btn-icon" 
+                        className="btn btn-ghost btn-sm btn-icon" aria-label="Edit Details"
                         title="Edit Details"
                         onClick={() => handleEdit(m)}
                       >
                         <Pencil size={15} />
                       </button>
                       <button 
-                        className="btn btn-ghost btn-sm btn-icon" 
+                        className="btn btn-ghost btn-sm btn-icon" aria-label="Delete Employee"
                         style={{ color: 'hsl(var(--destructive))' }}
                         title="Delete Employee"
                         onClick={() => setShowDeleteConfirm(m.id)}
@@ -438,7 +438,7 @@ export default function Member() {
               <p className="dialog-description">Enter personal details, organizational role, and employment credentials.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setShowAddModal(false)}
               >
                 <X size={16} />
