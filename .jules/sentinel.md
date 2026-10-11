@@ -1,0 +1,4 @@
+## 2025-02-14 - Prevent SQL Injection via String Interpolation in Queries
+**Vulnerability:** Several backend controllers and models (`HelpdeskController.php`, `ShiftController.php`, `HelpdeskModel.php`, `ShiftModel.php`) executed database queries by embedding unsanitized user inputs or raw variables directly into double-quoted SQL strings.
+**Learning:** Variables embedded within double-quoted strings in PHP are directly evaluated and included in the resulting SQL statement without proper escaping. This lack of parameterization allowed potential SQL injection vulnerabilities if user-controlled inputs were not rigorously validated upstream.
+**Prevention:** Consistently use PDO prepared statements with bound parameters (`$this->db->prepare(...)` followed by `->execute([...])`) instead of `->query(...)` when incorporating any variables into SQL queries to ensure safe abstraction and automatic escaping.
