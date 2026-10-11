@@ -438,7 +438,7 @@ export default function Member() {
               <p className="dialog-description">Enter personal details, organizational role, and employment credentials.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog" title="Close dialog"
                 onClick={() => setShowAddModal(false)}
               >
                 <X size={16} />

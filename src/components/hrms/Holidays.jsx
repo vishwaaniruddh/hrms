@@ -795,7 +795,7 @@ export default function Holidays() {
                 <h2 className="dialog-title">{editHoliday ? 'Edit Company Holiday' : 'Schedule Company Holiday'}</h2>
                 <p className="dialog-description">Configure official statutory holidays, optional leaves, or team observances.</p>
               </div>
-              <button type="button" className="dialog-close-btn" onClick={() => setShowAddModal(false)}>
+              <button type="button" className="dialog-close-btn" aria-label="Close dialog" title="Close dialog" onClick={() => setShowAddModal(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -890,7 +890,7 @@ export default function Holidays() {
                   </h2>
                   <p className="dialog-description">Day schedule, holidays, and team out-of-office roster.</p>
                 </div>
-                <button type="button" className="dialog-close-btn" onClick={() => setSelectedDayEvents(null)}>
+                <button type="button" className="dialog-close-btn" aria-label="Close dialog" title="Close dialog" onClick={() => setSelectedDayEvents(null)}>
                   <X size={16} />
                 </button>
               </div>

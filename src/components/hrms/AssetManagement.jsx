@@ -748,7 +748,7 @@ export default function AssetManagement() {
               <p className="dialog-description">Add hardware, laptop, or peripheral equipment to central company inventory.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog" title="Close dialog"
                 onClick={() => setShowAddModal(false)}
               >
                 <X size={16} />
@@ -907,7 +907,7 @@ export default function AssetManagement() {
               <p className="dialog-description">Allocate custody of {assignModal.name} to a company employee.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog" title="Close dialog"
                 onClick={() => setAssignModal(null)}
               >
                 <X size={16} />
@@ -1041,7 +1041,7 @@ export default function AssetManagement() {
               <p className="dialog-description">Relieve staff custody and check item back into central safe.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog" title="Close dialog"
                 onClick={() => setReturnModal(null)}
               >
                 <X size={16} />
@@ -1148,7 +1148,7 @@ export default function AssetManagement() {
               <p className="dialog-description">Historical assignment logs and return records for {historyModal.asset_tag}.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog" title="Close dialog"
                 onClick={() => setHistoryModal(null)}
               >
                 <X size={16} />
