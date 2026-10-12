@@ -200,6 +200,7 @@ export default function Reports() {
             type="button" 
             className="btn btn-primary" 
             onClick={handleExportCsv}
+            aria-label={exporting ? 'Generating CSV export...' : 'Export current report to CSV'}
             disabled={exporting || loading}
             style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
           >

@@ -691,6 +691,7 @@ export default function NotificationManagement() {
                         <button
                           type="button"
                           className="btn btn-outline-warning btn-sm"
+                          aria-label={runningAttendance ? 'Auditing attendance...' : 'Run attendance audit now'}
                           style={{ fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
                           onClick={handleRunAttendanceAudit}
                           disabled={runningAttendance}
