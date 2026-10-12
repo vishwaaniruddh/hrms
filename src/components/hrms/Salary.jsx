@@ -901,6 +901,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                               className="btn btn-ghost btn-sm btn-icon"
                               style={{ color: 'hsl(var(--destructive))' }}
                               title="Delete record"
+                              aria-label="Delete salary record"
                               onClick={() => setShowDeleteConfirm(s.id)}
                             >
                               <Trash2 size={14} />
@@ -1340,6 +1341,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                                 style={{ color: 'hsl(var(--destructive))' }}
                                 onClick={() => handleRejectClaim(claim.id)}
                                 title="Reject Claim"
+                                aria-label="Reject expense claim"
                               >
                                 <X size={14} />
                               </button>

@@ -326,6 +326,7 @@ export default function EmployeeSelfService() {
           <button 
             type="button" 
             className={`btn ${punch.is_clocked_in ? 'btn-destructive' : punch.is_clocked_out ? 'btn-outline' : 'btn-primary'}`}
+            aria-label={punch.is_clocked_in ? 'Clock Out' : punch.is_clocked_out ? 'Shift completed' : 'Clock In'}
             style={{ width: '100%', justifyContent: 'center', fontWeight: 600 }}
             onClick={handlePunch}
             disabled={punch.is_clocked_out}
