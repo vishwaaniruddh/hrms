@@ -26,6 +26,7 @@ import {
   Check
 } from 'lucide-react';
 import { essApi } from '../../services/api';
+import LiveClock from './LiveClock';
 import { useAuth } from '../../context/AuthContext';
 
 export default function EmployeeSelfService() {
@@ -41,12 +42,7 @@ export default function EmployeeSelfService() {
     setTimeout(() => setToast(null), 4000);
   };
 
-  // Live Digital Clock
-  const [currentTime, setCurrentTime] = useState(new Date());
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+  // ⚡ Bolt Performance Optimization: Removed local time state that caused the entire EmployeeSelfService component to re-render every second.
 
   // Modals
   const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
@@ -281,18 +277,8 @@ export default function EmployeeSelfService() {
                 <span className="text-xs text-muted" style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Web Attendance Terminal
                 </span>
-                <div 
-                  className="font-mono" 
-                  style={{ 
-                    fontSize: '1.75rem', 
-                    fontWeight: 700, 
-                    color: 'var(--foreground)', 
-                    marginTop: '0.25rem',
-                    letterSpacing: '0.04em'
-                  }}
-                >
-                  {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                </div>
+                {/* ⚡ Bolt Performance Optimization: Extracted LiveClock to prevent parent re-renders */}
+                <LiveClock />
               </div>
 
               {/* Status Badge */}
