@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Users, Clock, DollarSign, UserPlus, FileSpreadsheet, X, ArrowRight, Calendar, UserMinus, Laptop, Target, Award, MessageSquare, LifeBuoy } from 'lucide-react';
 
@@ -11,46 +11,50 @@ export default function CommandPalette({ isOpen, onClose }) {
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
-  const allCommands = [
-    { id: 'ess', title: 'My Self-Service Workspace (ESS)', category: 'Employee Portal', icon: Users, path: '/hrms/ess', roles: ['admin', 'manager', 'employee'] },
-    { id: 'punch-now', title: 'Punch In / Clock Out (Web Attendance Terminal)', category: 'Employee Actions', icon: Clock, path: '/hrms/ess', roles: ['admin', 'manager', 'employee'] },
-    { id: 'helpdesk', title: isEmployee ? 'HR Helpdesk & Support Desk' : 'Internal HR Helpdesk & Grievance Desk', category: 'Support & Helpdesk', icon: LifeBuoy, path: '/hrms/helpdesk', roles: ['admin', 'manager', 'employee'] },
-    { id: 'create-ticket', title: 'Submit Support Ticket / Workplace Grievance', category: 'Employee Actions', icon: LifeBuoy, path: '/hrms/helpdesk?tab=my-tickets', roles: ['admin', 'manager', 'employee'] },
-    { id: 'pms-okrs', title: isEmployee ? 'My OKRs & Key Results' : 'OKRs & Measurable Milestones', category: 'Performance', icon: Target, path: '/hrms/pms', roles: ['admin', 'manager', 'employee'] },
-    { id: 'pms-reviews', title: isEmployee ? 'My Self-Evaluation & Appraisal' : '360° Review Cycles & Appraisals', category: 'Performance', icon: Award, path: '/hrms/pms', roles: ['admin', 'manager', 'employee'] },
-    { id: 'attendance', title: isEmployee ? 'My Attendance Record' : 'Daily Attendance & Shifts', category: 'Navigation', icon: Clock, path: '/hrms/attendance', roles: ['admin', 'manager', 'employee'] },
-    { id: 'leaves', title: isEmployee ? 'My Leave Requests' : 'Leave Requests & Approvals', category: 'Navigation', icon: Calendar, path: '/hrms/leaves', roles: ['admin', 'manager', 'employee'] },
-    { id: 'apply-leave', title: 'Apply for Leave', category: 'Employee Actions', icon: UserMinus, path: '/hrms/leaves', roles: ['admin', 'manager', 'employee'] },
-    { id: 'salary', title: isEmployee ? 'My Salary & Itemized Payslips' : 'Payroll & Salary Management', category: 'Navigation', icon: DollarSign, path: '/hrms/salary', roles: ['admin', 'manager', 'employee'] },
-    { id: 'assets', title: isEmployee ? 'My Issued Hardware & Equipment' : 'Asset Allocation & IT Inventory', category: 'Navigation', icon: Laptop, path: '/hrms/assets', roles: ['admin', 'manager', 'employee'] },
-    { id: 'shifts', title: isEmployee ? 'My Shift Schedule & Swaps' : 'Shift Scheduling & Team Roster', category: 'Time & Operations', icon: Calendar, path: '/hrms/shifts', roles: ['admin', 'manager', 'employee'] },
-    { id: 'shift-swap', title: 'Request Shift Swap / Exchange', category: 'Employee Actions', icon: Users, path: '/hrms/shifts?tab=swaps', roles: ['admin', 'manager', 'employee'] },
-    { id: 'profile', title: 'My Profile & Documents', category: 'Navigation', icon: Users, path: `/hrms/memberProfile?id=${currentUser?.id || 1}`, roles: ['admin', 'manager', 'employee'] },
-    
-    // Manager & Admin Only
-    { id: 'pms-talent', title: '9-Box Talent Matrix & Competency Calibration', category: 'Talent Management', icon: Target, path: '/hrms/pms', roles: ['admin', 'manager'] },
-    { id: 'approvals', title: 'Manager Approvals Inbox (Leaves, Claims & Clearances)', category: 'Team Approvals', icon: Users, path: '/hrms/approvals', roles: ['admin', 'manager'] },
-    
-    // Admin Only
-    { id: 'pms-payroll', title: 'Appraisal to Payroll Increment Sync', category: 'Compensation', icon: DollarSign, path: '/hrms/pms', roles: ['admin'] },
-    { id: 'members', title: 'Employee Directory & Staff Records', category: 'Administration', icon: Users, path: '/hrms/members', roles: ['admin', 'manager'] },
-    { id: 'add-member', title: 'Add New Employee to Organization', category: 'HR Actions', icon: UserPlus, path: '/hrms/members?action=create', roles: ['admin'] },
-    { id: 'clock-in', title: 'Clock-In Member (Admin Override)', category: 'HR Actions', icon: Clock, path: '/hrms/attendance?action=signin', roles: ['admin'] },
-    { id: 'lifecycle', title: 'Lifecycle & Exit Management (Onboarding & Offboarding)', category: 'Administration', icon: Users, path: '/hrms/lifecycle', roles: ['admin', 'manager'] },
-    { id: 'initiate-onboarding', title: 'Initiate Employee Onboarding Journey', category: 'HR Actions', icon: UserPlus, path: '/hrms/lifecycle?action=onboard', roles: ['admin'] },
-    { id: 'submit-resignation', title: 'Submit Employee Resignation & Exit', category: 'HR Actions', icon: UserMinus, path: '/hrms/lifecycle?action=exit', roles: ['admin'] },
-    { id: 'generate-salary', title: 'Process Monthly Payroll Register', category: 'HR Actions', icon: FileSpreadsheet, path: '/hrms/salary?action=generate', roles: ['admin'] },
-    { id: 'notifications', title: 'Automated WhatsApp & SMS Notification Engine', category: 'Communications', icon: MessageSquare, path: '/hrms/notifications', roles: ['admin', 'manager'] },
-    { id: 'send-notif', title: 'Send WhatsApp / SMS Broadcast to Staff', category: 'Communications', icon: MessageSquare, path: '/hrms/notifications?action=send', roles: ['admin', 'manager'] },
-  ];
+  // ⚡ Bolt Performance Optimization: Memoized command arrays to prevent unnecessary allocations and filter operations on every keystroke.
+  const filteredCommands = useMemo(() => {
+    const allCommands = [
+      { id: 'ess', title: 'My Self-Service Workspace (ESS)', category: 'Employee Portal', icon: Users, path: '/hrms/ess', roles: ['admin', 'manager', 'employee'] },
+      { id: 'punch-now', title: 'Punch In / Clock Out (Web Attendance Terminal)', category: 'Employee Actions', icon: Clock, path: '/hrms/ess', roles: ['admin', 'manager', 'employee'] },
+      { id: 'helpdesk', title: isEmployee ? 'HR Helpdesk & Support Desk' : 'Internal HR Helpdesk & Grievance Desk', category: 'Support & Helpdesk', icon: LifeBuoy, path: '/hrms/helpdesk', roles: ['admin', 'manager', 'employee'] },
+      { id: 'create-ticket', title: 'Submit Support Ticket / Workplace Grievance', category: 'Employee Actions', icon: LifeBuoy, path: '/hrms/helpdesk?tab=my-tickets', roles: ['admin', 'manager', 'employee'] },
+      { id: 'pms-okrs', title: isEmployee ? 'My OKRs & Key Results' : 'OKRs & Measurable Milestones', category: 'Performance', icon: Target, path: '/hrms/pms', roles: ['admin', 'manager', 'employee'] },
+      { id: 'pms-reviews', title: isEmployee ? 'My Self-Evaluation & Appraisal' : '360° Review Cycles & Appraisals', category: 'Performance', icon: Award, path: '/hrms/pms', roles: ['admin', 'manager', 'employee'] },
+      { id: 'attendance', title: isEmployee ? 'My Attendance Record' : 'Daily Attendance & Shifts', category: 'Navigation', icon: Clock, path: '/hrms/attendance', roles: ['admin', 'manager', 'employee'] },
+      { id: 'leaves', title: isEmployee ? 'My Leave Requests' : 'Leave Requests & Approvals', category: 'Navigation', icon: Calendar, path: '/hrms/leaves', roles: ['admin', 'manager', 'employee'] },
+      { id: 'apply-leave', title: 'Apply for Leave', category: 'Employee Actions', icon: UserMinus, path: '/hrms/leaves', roles: ['admin', 'manager', 'employee'] },
+      { id: 'salary', title: isEmployee ? 'My Salary & Itemized Payslips' : 'Payroll & Salary Management', category: 'Navigation', icon: DollarSign, path: '/hrms/salary', roles: ['admin', 'manager', 'employee'] },
+      { id: 'assets', title: isEmployee ? 'My Issued Hardware & Equipment' : 'Asset Allocation & IT Inventory', category: 'Navigation', icon: Laptop, path: '/hrms/assets', roles: ['admin', 'manager', 'employee'] },
+      { id: 'shifts', title: isEmployee ? 'My Shift Schedule & Swaps' : 'Shift Scheduling & Team Roster', category: 'Time & Operations', icon: Calendar, path: '/hrms/shifts', roles: ['admin', 'manager', 'employee'] },
+      { id: 'shift-swap', title: 'Request Shift Swap / Exchange', category: 'Employee Actions', icon: Users, path: '/hrms/shifts?tab=swaps', roles: ['admin', 'manager', 'employee'] },
+      { id: 'profile', title: 'My Profile & Documents', category: 'Navigation', icon: Users, path: `/hrms/memberProfile?id=${currentUser?.id || 1}`, roles: ['admin', 'manager', 'employee'] },
 
-  const currentRole = isEmployee ? 'employee' : (isManager && !isAdmin ? 'manager' : 'admin');
-  const commands = allCommands.filter(cmd => cmd.roles.includes(currentRole));
+      // Manager & Admin Only
+      { id: 'pms-talent', title: '9-Box Talent Matrix & Competency Calibration', category: 'Talent Management', icon: Target, path: '/hrms/pms', roles: ['admin', 'manager'] },
+      { id: 'approvals', title: 'Manager Approvals Inbox (Leaves, Claims & Clearances)', category: 'Team Approvals', icon: Users, path: '/hrms/approvals', roles: ['admin', 'manager'] },
 
-  const filteredCommands = commands.filter(cmd => 
-    cmd.title.toLowerCase().includes(query.toLowerCase()) ||
-    cmd.category.toLowerCase().includes(query.toLowerCase())
-  );
+      // Admin Only
+      { id: 'pms-payroll', title: 'Appraisal to Payroll Increment Sync', category: 'Compensation', icon: DollarSign, path: '/hrms/pms', roles: ['admin'] },
+      { id: 'members', title: 'Employee Directory & Staff Records', category: 'Administration', icon: Users, path: '/hrms/members', roles: ['admin', 'manager'] },
+      { id: 'add-member', title: 'Add New Employee to Organization', category: 'HR Actions', icon: UserPlus, path: '/hrms/members?action=create', roles: ['admin'] },
+      { id: 'clock-in', title: 'Clock-In Member (Admin Override)', category: 'HR Actions', icon: Clock, path: '/hrms/attendance?action=signin', roles: ['admin'] },
+      { id: 'lifecycle', title: 'Lifecycle & Exit Management (Onboarding & Offboarding)', category: 'Administration', icon: Users, path: '/hrms/lifecycle', roles: ['admin', 'manager'] },
+      { id: 'initiate-onboarding', title: 'Initiate Employee Onboarding Journey', category: 'HR Actions', icon: UserPlus, path: '/hrms/lifecycle?action=onboard', roles: ['admin'] },
+      { id: 'submit-resignation', title: 'Submit Employee Resignation & Exit', category: 'HR Actions', icon: UserMinus, path: '/hrms/lifecycle?action=exit', roles: ['admin'] },
+      { id: 'generate-salary', title: 'Process Monthly Payroll Register', category: 'HR Actions', icon: FileSpreadsheet, path: '/hrms/salary?action=generate', roles: ['admin'] },
+      { id: 'notifications', title: 'Automated WhatsApp & SMS Notification Engine', category: 'Communications', icon: MessageSquare, path: '/hrms/notifications', roles: ['admin', 'manager'] },
+      { id: 'send-notif', title: 'Send WhatsApp / SMS Broadcast to Staff', category: 'Communications', icon: MessageSquare, path: '/hrms/notifications?action=send', roles: ['admin', 'manager'] },
+    ];
+
+    const currentRole = isEmployee ? 'employee' : (isManager && !isAdmin ? 'manager' : 'admin');
+    const commands = allCommands.filter(cmd => cmd.roles.includes(currentRole));
+
+    const lowerQuery = query.toLowerCase();
+    return commands.filter(cmd =>
+      cmd.title.toLowerCase().includes(lowerQuery) ||
+      cmd.category.toLowerCase().includes(lowerQuery)
+    );
+  }, [isEmployee, isManager, isAdmin, currentUser?.id, query]);
 
   useEffect(() => {
     if (isOpen) {
