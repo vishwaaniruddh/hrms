@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Search, Moon, Sun, ChevronRight, UserCheck } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
@@ -26,7 +26,11 @@ export default function Header({ onOpenSearch }) {
   };
 
   // Compute breadcrumbs
-  const getBreadcrumbs = () => {
+  // ⚡ Bolt Performance Optimization: Memoize breadcrumbs calculation
+  // The original implementation evaluated 10 string .includes() checks on location.pathname
+  // every time the Header rendered (e.g. when opening search, toggling theme, switching personas).
+  // By wrapping in useMemo, we only recalculate when location.pathname actually changes.
+  const crumbs = useMemo(() => {
     const path = location.pathname;
     if (path.includes('ess')) {
       return ['My Workspace', 'Employee Self-Service (ESS)'];
@@ -60,9 +64,7 @@ export default function Header({ onOpenSearch }) {
     }
 
     return ['People', 'Employees', 'Directory'];
-  };
-
-  const crumbs = getBreadcrumbs();
+  }, [location.pathname]);
 
   return (
     <header className="app-header">
