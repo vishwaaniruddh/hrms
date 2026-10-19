@@ -160,8 +160,14 @@ class ShiftController extends Controller
         try {
             $notif = new NotificationService();
             $db = Database::getInstance();
-            $receiver = $db->query("SELECT phone, full_name FROM users WHERE id = {$recId}")->fetch();
-            $requester = $db->query("SELECT full_name FROM users WHERE id = {$reqId}")->fetch();
+            // 🛡️ Sentinel: Security Enhancement - Prevent SQL Injection by using prepared statements
+            $stmtRec = $db->prepare("SELECT phone, full_name FROM users WHERE id = :id");
+            $stmtRec->execute([':id' => $recId]);
+            $receiver = $stmtRec->fetch();
+
+            $stmtReq = $db->prepare("SELECT full_name FROM users WHERE id = :id");
+            $stmtReq->execute([':id' => $reqId]);
+            $requester = $stmtReq->fetch();
             if ($receiver && !empty($receiver['phone'])) {
                 $text = "Hi {$receiver['full_name']}, colleague {$requester['full_name']} has requested a shift swap with you for date {$date}. Please review and respond in your HRMS ESS Portal.";
                 $notif->sendCustom($receiver['phone'], $text, 'whatsapp', $recId, $receiver['full_name']);
@@ -208,9 +214,14 @@ class ShiftController extends Controller
             try {
                 $notif = new NotificationService();
                 $db = Database::getInstance();
-                $swap = $db->query("SELECT requester_id, swap_date FROM shift_swaps WHERE id = {$id}")->fetch();
+                // 🛡️ Sentinel: Security Enhancement - Prevent SQL Injection by using prepared statements
+                $stmtSwap = $db->prepare("SELECT requester_id, swap_date FROM shift_swaps WHERE id = :id");
+                $stmtSwap->execute([':id' => $id]);
+                $swap = $stmtSwap->fetch();
                 if ($swap) {
-                    $reqUser = $db->query("SELECT phone, full_name FROM users WHERE id = {$swap['requester_id']}")->fetch();
+                    $stmtUser = $db->prepare("SELECT phone, full_name FROM users WHERE id = :id");
+                    $stmtUser->execute([':id' => $swap['requester_id']]);
+                    $reqUser = $stmtUser->fetch();
                     if ($reqUser && !empty($reqUser['phone'])) {
                         $text = "Shift Swap Update: Hi {$reqUser['full_name']}, your shift swap for {$swap['swap_date']} has been {$action} by manager. Remarks: " . ($remarks ?: 'None');
                         $notif->sendCustom($reqUser['phone'], $text, 'whatsapp', (int) $swap['requester_id'], $reqUser['full_name']);
