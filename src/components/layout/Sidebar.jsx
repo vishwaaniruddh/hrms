@@ -155,6 +155,7 @@ export default function Sidebar({ onOpenSearch }) {
       {/* Quick Search Shortcut Button */}
       <button 
         type="button" 
+        aria-label="Quick search"
         className="sidebar-search-btn"
         onClick={onOpenSearch}
         title="Search anything (Ctrl+K)"
