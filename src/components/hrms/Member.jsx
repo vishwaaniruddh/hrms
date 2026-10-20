@@ -77,9 +77,13 @@ export default function Member() {
     }
   }, [page, search, filterDesignation, statusTab]);
 
+  // ⚡ Bolt: Fetch stats only on mount to prevent redundant API calls during pagination/filtering
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
   useEffect(() => { 
     fetchMembers(); 
-    fetchStats();
   }, [fetchMembers]);
 
   useEffect(() => {
