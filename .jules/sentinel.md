@@ -1,0 +1,4 @@
+## 2024-10-22 - SQL Injection in Database Queries via Unparameterized Variable Substitution
+**Vulnerability:** Several backend controllers and models (e.g., `ShiftController.php`, `HelpdeskController.php`, `ShiftModel.php`, `PmsModel.php`) directly embed user input or unvalidated variables into SQL queries via double-quoted string substitution (e.g., `SELECT ... WHERE id = {$recId}`).
+**Learning:** These variables are often typecast to `int` just prior (e.g., `$recId = (int) ...`), which happens to prevent injection in some cases, but direct variable substitution into raw queries without prepared statements is a systemic risk if an uncast string is passed, or if the typecast is removed in future refactoring.
+**Prevention:** Always use parameterized PDO prepared statements (`$db->prepare("... :id")` and `execute([':id' => $id])`) for any variable in SQL queries. Never rely on typecasting or string interpolation to secure raw SQL queries.
