@@ -1,0 +1,3 @@
+## 2024-05-24 - Expensive Computations in Renders
+**Learning:** Found a performance bottleneck where `getInitials()` string operations (split, map, join, toUpperCase, slice) were being executed on every re-render for hundreds of table rows across multiple modules (Salary, Member, LeaveManagement, etc). Because React lists map over large data arrays, recreating strings on the fly inside the render loop causes GC churn and CPU overhead.
+**Action:** Extract expensive utility functions out of component bodies and memoize them globally (e.g., using a Map cache). By placing `getInitials` in a shared `src/utils/stringUtils.js` with `initialsCache`, we avoid redundant computations across the entire application and reduce time complexity during re-renders.

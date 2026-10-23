@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { leavesApi, membersApi } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
+import { getInitials } from '../../utils/stringUtils';
 
 const STATUS_TABS = ['All', 'Pending', 'Approved', 'Rejected'];
 
@@ -193,7 +194,6 @@ export default function LeaveManagement() {
     document.body.removeChild(link);
   };
 
-  const getInitials = (name) => name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || '??';
 
   return (
     <div>

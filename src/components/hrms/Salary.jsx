@@ -33,6 +33,7 @@ import {
 } from 'lucide-react';
 import { salariesApi, payrollMastersApi, membersApi } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
+import { getInitials } from '../../utils/stringUtils';
 
 const STATUS_TABS = ['All', 'Paid', 'Unpaid', 'Pending'];
 const EMPLOYMENT_TIERS = ['All Tiers', 'Permanent', 'Temporary', 'Intern'];
@@ -554,7 +555,6 @@ export default function Salary({ defaultTab = 'salaries' }) {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: curr }).format(amount || 0);
   };
 
-  const getInitials = (name) => name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || '??';
 
   const exportCSV = () => {
     if (salaries.length === 0) return;

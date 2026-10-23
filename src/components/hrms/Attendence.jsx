@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { attendanceApi, membersApi } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
+import { getInitials } from '../../utils/stringUtils';
 
 const STATUS_TABS = ['All', 'Present', 'Late', 'On Leave'];
 
@@ -138,7 +139,6 @@ export default function Attendance() {
     document.body.removeChild(link);
   };
 
-  const getInitials = (name) => name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || '??';
 
   return (
     <div>

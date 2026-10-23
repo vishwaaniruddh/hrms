@@ -29,6 +29,7 @@ import {
   MoreHorizontal
 } from 'lucide-react';
 import { lifecycleApi, membersApi } from '../../services/api';
+import { getInitials } from '../../utils/stringUtils';
 
 const DEPARTMENTS = [
   'Engineering',
@@ -307,12 +308,6 @@ export default function LifecycleManagement() {
     return colors[hash % colors.length];
   };
 
-  const getInitials = (name) => {
-    if (!name) return 'HR';
-    const parts = name.split(' ');
-    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
-    return name.slice(0, 2).toUpperCase();
-  };
 
   return (
     <div>
@@ -612,7 +607,7 @@ export default function LifecycleManagement() {
                               fontSize: '0.78rem'
                             }}
                           >
-                            {getInitials(wf.employee_name)}
+                            {getInitials(wf.employee_name, 'HR')}
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <span className="cell-title" style={{ fontSize: '0.84rem' }}>{wf.employee_name}</span>
@@ -761,7 +756,7 @@ export default function LifecycleManagement() {
                             fontSize: '0.78rem'
                           }}
                         >
-                          {getInitials(row.employee_name)}
+                          {getInitials(row.employee_name, 'HR')}
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                           <span className="cell-title" style={{ fontSize: '0.84rem' }}>{row.employee_name}</span>
@@ -886,7 +881,7 @@ export default function LifecycleManagement() {
                     fontWeight: 700 
                   }}
                 >
-                  {getInitials(selectedWorkflow.employee_name)}
+                  {getInitials(selectedWorkflow.employee_name, 'HR')}
                 </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
