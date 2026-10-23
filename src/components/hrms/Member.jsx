@@ -378,6 +378,7 @@ export default function Member() {
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         title="View Profile"
+                        aria-label="View Profile"
                         onClick={() => navigate(`/hrms/memberProfile?id=${m.id}`)}
                       >
                         <Eye size={15} />
@@ -385,6 +386,7 @@ export default function Member() {
                       <button 
                         className="btn btn-ghost btn-sm btn-icon" 
                         title="Edit Details"
+                        aria-label="Edit Details"
                         onClick={() => handleEdit(m)}
                       >
                         <Pencil size={15} />
@@ -393,6 +395,7 @@ export default function Member() {
                         className="btn btn-ghost btn-sm btn-icon" 
                         style={{ color: 'hsl(var(--destructive))' }}
                         title="Delete Employee"
+                        aria-label="Delete Employee"
                         onClick={() => setShowDeleteConfirm(m.id)}
                       >
                         <Trash2 size={15} />
