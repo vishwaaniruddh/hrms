@@ -37,6 +37,7 @@ import {
   UserPlus
 } from 'lucide-react';
 import { recruitmentApi } from '../../services/api';
+import { getInitials } from '../../utils/stringUtils';
 
 const STAGES = [
   { id: 'Applied', label: 'Applied', color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.4)', bg: 'rgba(56, 189, 248, 0.08)' },
@@ -267,13 +268,6 @@ export default function Recruitment() {
     }
   };
 
-  // Helper for initials
-  const getInitials = (name) => {
-    if (!name) return 'CD';
-    const parts = name.split(' ');
-    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
-    return name.slice(0, 2).toUpperCase();
-  };
 
   // Generate subtle avatar color based on name
   const getAvatarColor = (name) => {
@@ -571,7 +565,7 @@ export default function Recruitment() {
                                   className="ats-avatar" 
                                   style={{ background: getAvatarColor(cand.full_name) }}
                                 >
-                                  {getInitials(cand.full_name)}
+                                  {getInitials(cand.full_name, 'CD')}
                                 </div>
                                 <div className="ats-name-group">
                                   <span className="ats-candidate-name">{cand.full_name}</span>
@@ -756,7 +750,7 @@ export default function Recruitment() {
                             fontSize: '0.78rem'
                           }}
                         >
-                          {getInitials(c.full_name)}
+                          {getInitials(c.full_name, 'CD')}
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                           <span className="cell-title" style={{ fontSize: '0.84rem' }}>{c.full_name}</span>
@@ -840,7 +834,7 @@ export default function Recruitment() {
                   className="ats-avatar-lg"
                   style={{ background: getAvatarColor(selectedCandidate.full_name) }}
                 >
-                  {getInitials(selectedCandidate.full_name)}
+                  {getInitials(selectedCandidate.full_name, 'CD')}
                 </div>
                 <div>
                   <div className="drawer-title-row">

@@ -19,6 +19,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { membersApi, rolesApi } from '../../services/api';
+import { getInitials } from '../../utils/stringUtils';
 
 const DESIGNATIONS = ['Admin', 'Manager', 'Pharmacist', 'Accountant', 'Salesman', 'Cleaner'];
 const STATUSES = ['All', 'Active', 'Inactive', 'Suspend'];
@@ -163,7 +164,6 @@ export default function Member() {
     document.body.removeChild(link);
   };
 
-  const getInitials = (name) => name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || '??';
 
   return (
     <div>

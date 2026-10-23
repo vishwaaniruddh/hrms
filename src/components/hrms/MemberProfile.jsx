@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Calendar, Shield, Globe, ArrowLeft } from 'lucide-react';
 import { membersApi } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
+import { getInitials } from '../../utils/stringUtils';
 
 export default function MemberProfile() {
   const { currentUser, isEmployee } = useAuth();
@@ -34,7 +35,6 @@ export default function MemberProfile() {
     );
   }
 
-  const getInitials = (name) => name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || '??';
 
   const statusBadgeClass = (status) => {
     switch (status) {
