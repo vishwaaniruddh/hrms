@@ -591,7 +591,9 @@ export default function Salary({ defaultTab = 'salaries' }) {
   }, [claims, claimCategoryFilter, claimStatusFilter]);
 
   const totalClaimsAmount = useMemo(() => claims.reduce((acc, c) => acc + c.amount, 0), [claims]);
-  const pendingClaimsAmount = useMemo(() => claims.filter(c => c.status === 'Pending').reduce((acc, c) => acc + c.amount, 0), [claims]);
+  // ⚡ Bolt: Memoize pending claims array to prevent O(N) filtering across multiple re-renders when calculating sum and counts
+  const pendingClaims = useMemo(() => claims.filter(c => c.status === 'Pending'), [claims]);
+  const pendingClaimsAmount = useMemo(() => pendingClaims.reduce((acc, c) => acc + c.amount, 0), [pendingClaims]);
 
   return (
     <div>
@@ -678,7 +680,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
           </div>
           <div className="stat-value">{formatCurrency(pendingClaimsAmount)}</div>
           <div className="stat-subtext">
-            <span className="stat-trend-down">{claims.filter(c => c.status === 'Pending').length} pending</span>
+            <span className="stat-trend-down">{pendingClaims.length} pending</span>
             <span>claims awaiting approval</span>
           </div>
         </div>
