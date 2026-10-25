@@ -1173,9 +1173,9 @@ export default function HelpdeskManagement() {
                   <p className="dialog-description" style={{ fontSize: '0.8rem' }}>Log an issue or inquiry with automatic SLA deadline tracking.</p>
                 </div>
               </div>
-              <button 
-                type="button" 
-                className="dialog-close-btn"
+              <button
+                type="button"
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsCreateModalOpen(false)}
                 title="Close modal"
               >
@@ -1356,9 +1356,9 @@ export default function HelpdeskManagement() {
                   </p>
                 </div>
               </div>
-              <button 
-                type="button" 
-                className="dialog-close-btn"
+              <button
+                type="button"
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsResolveModalOpen(false)}
                 title="Close modal"
               >
@@ -1429,9 +1429,9 @@ export default function HelpdeskManagement() {
               <p className="dialog-description">
                 How satisfied are you with the resolution for ticket #{selectedTicket?.ticket_number}?
               </p>
-              <button 
-                type="button" 
-                className="dialog-close-btn"
+              <button
+                type="button"
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsCsatModalOpen(false)}
                 title="Close modal"
               >
