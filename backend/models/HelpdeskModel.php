@@ -312,7 +312,9 @@ class HelpdeskModel {
         $msgId = (int)$this->db->lastInsertId();
 
         // Check if ticket status should transition
-        $ticket = $this->db->query("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = {$ticketId}")->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->db->prepare("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = :ticketId");
+        $stmt->execute([':ticketId' => $ticketId]);
+        $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($ticket) {
             // If sender is NOT ticket creator and status is Open, change to In Progress
             if ($userId != $ticket['user_id'] && $ticket['status'] === 'Open' && !$isInternalNote) {

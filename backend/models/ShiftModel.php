@@ -380,7 +380,9 @@ class ShiftModel
     {
         $status = strtolower($action) === 'approved' ? 'Approved' : 'Rejected';
 
-        $swap = $this->db->query("SELECT * FROM `shift_swaps` WHERE id = {$swapId}")->fetch();
+        $stmt = $this->db->prepare("SELECT * FROM `shift_swaps` WHERE id = :swapId");
+        $stmt->execute([':swapId' => $swapId]);
+        $swap = $stmt->fetch();
         if (!$swap) return false;
 
         $stmt = $this->db->prepare("
