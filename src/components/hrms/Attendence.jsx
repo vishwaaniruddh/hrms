@@ -395,7 +395,7 @@ export default function Attendance() {
               <p className="dialog-description">Record shift timing and attendance status for an employee.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setShowAddForm(false)}
               >
                 <X size={16} />
