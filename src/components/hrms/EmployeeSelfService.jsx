@@ -28,6 +28,30 @@ import {
 import { essApi } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 
+// ⚡ Bolt: Extracted LiveClock to its own component to prevent the massive EmployeeSelfService component from re-rendering every second
+const LiveClock = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div
+      className="font-mono"
+      style={{
+        fontSize: '1.75rem',
+        fontWeight: 700,
+        color: 'var(--foreground)',
+        marginTop: '0.25rem',
+        letterSpacing: '0.04em'
+      }}
+    >
+      {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+    </div>
+  );
+};
+
 export default function EmployeeSelfService() {
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -41,12 +65,6 @@ export default function EmployeeSelfService() {
     setTimeout(() => setToast(null), 4000);
   };
 
-  // Live Digital Clock
-  const [currentTime, setCurrentTime] = useState(new Date());
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Modals
   const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
@@ -281,18 +299,7 @@ export default function EmployeeSelfService() {
                 <span className="text-xs text-muted" style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Web Attendance Terminal
                 </span>
-                <div 
-                  className="font-mono" 
-                  style={{ 
-                    fontSize: '1.75rem', 
-                    fontWeight: 700, 
-                    color: 'var(--foreground)', 
-                    marginTop: '0.25rem',
-                    letterSpacing: '0.04em'
-                  }}
-                >
-                  {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                </div>
+                <LiveClock />
               </div>
 
               {/* Status Badge */}
