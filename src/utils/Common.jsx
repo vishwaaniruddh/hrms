@@ -1,7 +1,7 @@
 // return the user data from the session storage
 export const getUser = () => {
   const userStr = localStorage.getItem('id');
-  if (userStr) return JSON.parse(userStr);
+  if (userStr) { try { return JSON.parse(userStr); } catch (e) { return null; } }
   else return null;
 }
 
