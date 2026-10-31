@@ -90,7 +90,7 @@ export default function Header({ onOpenSearch }) {
         {/* Search trigger */}
         <button 
           type="button" 
-          className="header-search-bar" 
+          aria-label="Open search" className="header-search-bar"
           onClick={onOpenSearch}
           title="Search (Ctrl+K)"
         >
