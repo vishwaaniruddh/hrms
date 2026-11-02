@@ -558,6 +558,7 @@ export default function LeaveManagement() {
               <button 
                 type="button" 
                 className="dialog-close-btn"
+                aria-label="Close dialog"
                 onClick={() => setShowApplyModal(false)}
               >
                 <X size={16} />
