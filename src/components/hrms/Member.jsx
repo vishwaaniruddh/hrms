@@ -49,14 +49,15 @@ export default function Member() {
   const [saving, setSaving] = useState(false);
 
   // Fetch Member stats
-  const fetchStats = async () => {
+  // ⚡ Bolt: Wrapped fetchStats in useCallback to prevent unnecessary re-creations and added it to useEffect dependency array to avoid infinite loops and re-renders
+  const fetchStats = useCallback(async () => {
     try {
       const res = await membersApi.getStats();
       if (res.data) setStats(res.data);
     } catch (e) {
       console.error('Failed to load stats', e);
     }
-  };
+  }, []);
 
   const fetchMembers = useCallback(async () => {
     setLoading(true);
@@ -80,7 +81,7 @@ export default function Member() {
   useEffect(() => { 
     fetchMembers(); 
     fetchStats();
-  }, [fetchMembers]);
+  }, [fetchMembers, fetchStats]);
 
   useEffect(() => {
     rolesApi.getAll().then(res => setRoles(res.data || [])).catch(() => {});
