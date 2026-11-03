@@ -1,0 +1,3 @@
+## 2024-05-14 - React Hooks Performance Optimization
+**Learning:** Component `Member` in `src/components/hrms/Member.jsx` fetches `fetchStats` multiple times or causes warnings because it's not wrapped in `useCallback`. This can lead to unnecessary re-creations of the function and trigger `useEffect` to run frequently if included in the dependency array (which is best practice). It is not in the array `[fetchMembers]`, which violates rules of hooks, but adding it without `useCallback` would cause an infinite loop.
+**Action:** Always wrap data fetching functions like `fetchStats` in `useCallback` when they are called from `useEffect` to avoid infinite loops and unnecessary re-renders. Add them to dependency arrays correctly.
