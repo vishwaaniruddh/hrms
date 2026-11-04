@@ -307,11 +307,12 @@ export default function ShiftManagement() {
   // Filtered Roster Employees
   const filteredEmployees = useMemo(() => {
     if (!rosterData || !rosterData.employees) return [];
+    if (!searchQuery) return rosterData.employees;
+    const q = searchQuery.toLowerCase();
+    // ⚡ Bolt: Cache lowercase searchQuery to prevent redundant string conversions in filter loop
     return rosterData.employees.filter(emp => {
-      const matchesSearch = !searchQuery || 
-        emp.full_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        emp.designation.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesSearch;
+      return emp.full_name.toLowerCase().includes(q) ||
+        emp.designation.toLowerCase().includes(q);
     });
   }, [rosterData, searchQuery]);
 

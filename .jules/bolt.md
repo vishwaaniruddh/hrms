@@ -1,0 +1,3 @@
+## 2024-11-04 - Cache lowercase search queries in filter loops
+**Learning:** Found multiple instances where the search term (e.g. `searchTerm` or `searchQuery`) was being converted to lowercase inside the `.filter()` callback (e.g. `searchTerm.toLowerCase()`), causing O(N) redundant string conversions for every single item in the list.
+**Action:** Always hoist invariant transformations out of the loop. If the search query doesn't change per element, cache its lowercase version outside the `.filter()` function to optimize filtering operations on potentially large arrays like employees, leaves, claims, and clearances.
