@@ -898,7 +898,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                             )}
 
                             <button
-                              className="btn btn-ghost btn-sm btn-icon"
+                              className="btn btn-ghost btn-sm btn-icon" aria-label="Delete record"
                               style={{ color: 'hsl(var(--destructive))' }}
                               title="Delete record"
                               onClick={() => setShowDeleteConfirm(s.id)}
@@ -1182,7 +1182,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                         <td style={{ textAlign: 'right' }}>
                           {!comp.is_mandatory && (
                             <button
-                              className="btn btn-ghost btn-sm btn-icon"
+                              className="btn btn-ghost btn-sm btn-icon" aria-label="Delete component"
                               style={{ color: 'hsl(var(--destructive))' }}
                               title="Delete component"
                               onClick={() => handleDeleteComponent(comp.id)}
@@ -1336,7 +1336,7 @@ export default function Salary({ defaultTab = 'salaries' }) {
                                 Approve
                               </button>
                               <button
-                                className="btn btn-ghost btn-sm btn-icon"
+                                className="btn btn-ghost btn-sm btn-icon" aria-label="Reject Claim"
                                 style={{ color: 'hsl(var(--destructive))' }}
                                 onClick={() => handleRejectClaim(claim.id)}
                                 title="Reject Claim"

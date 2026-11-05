@@ -348,7 +348,7 @@ export default function Attendance() {
                   </td>
                   <td style={{ textAlign: 'right' }}>
                     <button 
-                      className="btn btn-ghost btn-sm btn-icon" 
+                      className="btn btn-ghost btn-sm btn-icon" aria-label="Delete Entry"
                       style={{ color: 'hsl(var(--destructive))' }}
                       title="Delete Entry"
                       onClick={() => setShowDeleteConfirm(r.id)}

@@ -1,0 +1,3 @@
+## 2024-11-05 - Missing ARIA Labels on Icon Buttons
+**Learning:** Found multiple instances where icon-only buttons (`btn-icon`) were missing `aria-label` attributes across different HRMS components (like `AssetManagement.jsx`, `Holidays.jsx`, `ManagerApprovals.jsx`, `ShiftManagement.jsx`, etc). Without an accessible name, screen reader users would not know what these buttons do (e.g. "Previous month", "Delete", "Close", etc).
+**Action:** Used text replacements to inject context-aware `aria-label`s into all such instances. Next time, always ensure any newly created `btn-icon` explicitly requires an `aria-label` property or includes visibly hidden text.
