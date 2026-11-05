@@ -659,7 +659,7 @@ export default function AssetManagement() {
                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
                       {/* History Logs */}
                       <button
-                        className="btn btn-ghost btn-sm btn-icon"
+                        className="btn btn-ghost btn-sm btn-icon" aria-label="Custody Audit History"
                         style={{ width: '28px', height: '28px' }}
                         title="Custody Audit History"
                         onClick={() => openHistoryModal(asset)}
@@ -697,7 +697,7 @@ export default function AssetManagement() {
 
                           {/* Delete Asset */}
                           <button
-                            className="btn btn-ghost btn-sm btn-icon"
+                            className="btn btn-ghost btn-sm btn-icon" aria-label="Delete Asset"
                             style={{ color: 'var(--destructive)', width: '28px', height: '28px' }}
                             title="Delete Asset"
                             onClick={() => setShowDeleteConfirm(asset.id)}
