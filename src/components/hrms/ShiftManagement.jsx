@@ -582,7 +582,7 @@ export default function ShiftManagement() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', background: 'var(--muted)', borderRadius: 'calc(var(--radius) - 2px)', padding: '0.2rem 0.4rem', border: '1px solid var(--border)' }}>
                 <button
                   type="button"
-                  className="btn btn-icon btn-sm"
+                  aria-label="Previous month" className="btn btn-icon btn-sm"
                   style={{ width: '28px', height: '28px', background: 'transparent', border: 'none', color: 'var(--foreground)' }}
                   onClick={() => {
                     if (selectedMonth === 1) { setSelectedMonth(12); setSelectedYear(y => y - 1); }
@@ -597,7 +597,7 @@ export default function ShiftManagement() {
                 </span>
                 <button
                   type="button"
-                  className="btn btn-icon btn-sm"
+                  aria-label="Next month" className="btn btn-icon btn-sm"
                   style={{ width: '28px', height: '28px', background: 'transparent', border: 'none', color: 'var(--foreground)' }}
                   onClick={() => {
                     if (selectedMonth === 12) { setSelectedMonth(1); setSelectedYear(y => y + 1); }
@@ -928,7 +928,7 @@ export default function ShiftManagement() {
                   <p className="dialog-description">
                     {cellEditPopover.empName} · {cellEditPopover.date}
                   </p>
-                  <button className="dialog-close-btn" onClick={() => setCellEditPopover(null)}>
+                  <button aria-label="Close dialog" className="dialog-close-btn" onClick={() => setCellEditPopover(null)}>
                     <X size={16} />
                   </button>
                 </div>
@@ -1419,7 +1419,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Configure timing rules, break deductions, and night differential allowances.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsShiftModalOpen(false)}>
+              <button aria-label="Close dialog" className="dialog-close-btn" onClick={() => setIsShiftModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1559,7 +1559,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Assign recurring shift schedules across staff members for an entire date range.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsBulkModalOpen(false)}>
+              <button aria-label="Close dialog" className="dialog-close-btn" onClick={() => setIsBulkModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1673,7 +1673,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Propose a shift swap with a colleague for manager sign-off.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsSwapModalOpen(false)}>
+              <button aria-label="Close dialog" className="dialog-close-btn" onClick={() => setIsSwapModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>

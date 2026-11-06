@@ -348,7 +348,7 @@ export default function Attendance() {
                   </td>
                   <td style={{ textAlign: 'right' }}>
                     <button 
-                      className="btn btn-ghost btn-sm btn-icon" 
+                      aria-label="Delete Entry" className="btn btn-ghost btn-sm btn-icon"
                       style={{ color: 'hsl(var(--destructive))' }}
                       title="Delete Entry"
                       onClick={() => setShowDeleteConfirm(r.id)}
@@ -395,7 +395,7 @@ export default function Attendance() {
               <p className="dialog-description">Record shift timing and attendance status for an employee.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                aria-label="Close dialog" className="dialog-close-btn"
                 onClick={() => setShowAddForm(false)}
               >
                 <X size={16} />
