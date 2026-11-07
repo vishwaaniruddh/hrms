@@ -257,7 +257,9 @@ class HelpdeskModel {
 
         // Generate Ticket Number (TKT-YYYY-XXXX)
         $year = date('Y');
-        $seq = $this->db->query("SELECT COUNT(*) + 1 FROM `helpdesk_tickets` WHERE YEAR(created_at) = {$year}")->fetchColumn();
+        $stmt = $this->db->prepare("SELECT COUNT(*) + 1 FROM `helpdesk_tickets` WHERE YEAR(created_at) = ?");
+        $stmt->execute([$year]);
+        $seq = $stmt->fetchColumn();
         $ticketNumber = 'TKT-' . $year . '-' . str_pad($seq, 4, '0', STR_PAD_LEFT);
 
         $stmt = $this->db->prepare("
@@ -312,7 +314,9 @@ class HelpdeskModel {
         $msgId = (int)$this->db->lastInsertId();
 
         // Check if ticket status should transition
-        $ticket = $this->db->query("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = {$ticketId}")->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->db->prepare("SELECT user_id, status FROM `helpdesk_tickets` WHERE id = ?");
+        $stmt->execute([$ticketId]);
+        $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($ticket) {
             // If sender is NOT ticket creator and status is Open, change to In Progress
             if ($userId != $ticket['user_id'] && $ticket['status'] === 'Open' && !$isInternalNote) {
