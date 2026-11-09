@@ -1,0 +1,4 @@
+## 2024-05-18 - Prevent SQL Injection via Parameterized Queries
+**Vulnerability:** Direct string interpolation in SQL queries within HelpdeskController.php, ShiftController.php, migrate_pms.php, and migrate_shifts.php. Unsanitized input from request variables and local variables were injected directly into SQL query strings (e.g. `query("SELECT ... id = {$body['user_id']}")`), making them vulnerable to SQL injection.
+**Learning:** This codebase lacked parameterized query usage in certain areas where input, especially `user_id` or other IDs from arrays/variables, was dynamically concatenated.
+**Prevention:** Always use parameterized statements (`$db->prepare` and `$stmt->execute`) rather than direct string interpolation (`$db->query`), even for integer-like fields, to prevent SQL injection vulnerabilities.
