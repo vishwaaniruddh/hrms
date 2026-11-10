@@ -557,7 +557,7 @@ export default function LeaveManagement() {
               <p className="dialog-description">Select leave policy type, date schedule, and submit for manager approval.</p>
               <button 
                 type="button" 
-                className="dialog-close-btn"
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setShowApplyModal(false)}
               >
                 <X size={16} />

@@ -853,7 +853,7 @@ export default function Recruitment() {
 
               <button 
                 type="button" 
-                className="dialog-close-btn" 
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsDetailDrawerOpen(false)}
               >
                 <X size={18} />
@@ -996,7 +996,7 @@ export default function Recruitment() {
               <h2 className="dialog-title">Create Job Requisition</h2>
               <button 
                 type="button" 
-                className="dialog-close-btn" 
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsNewJobOpen(false)}
               >
                 <X size={18} />
@@ -1155,7 +1155,7 @@ export default function Recruitment() {
               <h2 className="dialog-title">Register Candidate Application</h2>
               <button 
                 type="button" 
-                className="dialog-close-btn" 
+                className="dialog-close-btn" aria-label="Close dialog"
                 onClick={() => setIsNewCandOpen(false)}
               >
                 <X size={18} />
