@@ -928,7 +928,7 @@ export default function ShiftManagement() {
                   <p className="dialog-description">
                     {cellEditPopover.empName} · {cellEditPopover.date}
                   </p>
-                  <button className="dialog-close-btn" onClick={() => setCellEditPopover(null)}>
+                  <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setCellEditPopover(null)}>
                     <X size={16} />
                   </button>
                 </div>
@@ -1419,7 +1419,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Configure timing rules, break deductions, and night differential allowances.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsShiftModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsShiftModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1559,7 +1559,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Assign recurring shift schedules across staff members for an entire date range.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsBulkModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsBulkModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
@@ -1673,7 +1673,7 @@ export default function ShiftManagement() {
               <p className="dialog-description">
                 Propose a shift swap with a colleague for manager sign-off.
               </p>
-              <button className="dialog-close-btn" onClick={() => setIsSwapModalOpen(false)}>
+              <button className="dialog-close-btn" aria-label="Close dialog" onClick={() => setIsSwapModalOpen(false)}>
                 <X size={16} />
               </button>
             </div>
