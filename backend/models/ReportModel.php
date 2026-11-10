@@ -316,6 +316,34 @@ class ReportModel
         $stmt->execute($params);
         $salaries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        // ⚡ Bolt: Fix N+1 query by batch fetching all salary items
+        $allItems = [];
+        if (!empty($salaries)) {
+            $salIds = array_column($salaries, 'id');
+            $inClause = implode(',', array_fill(0, count($salIds), '?'));
+            $itemsStmt = $this->db->prepare("
+                SELECT 
+                    si.salary_id,
+                    si.id, 
+                    si.type, 
+                    si.component_name, 
+                    si.category, 
+                    si.amount, 
+                    COALESCE(pc.code, '') as component_code
+                FROM salary_items si
+                LEFT JOIN payroll_components pc ON si.component_id = pc.id
+                WHERE si.salary_id IN ($inClause)
+                ORDER BY si.type ASC, si.id ASC
+            ");
+            $itemsStmt->execute($salIds);
+            $allItems = $itemsStmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        $itemsBySalary = [];
+        foreach ($allItems as $item) {
+            $itemsBySalary[$item['salary_id']][] = $item;
+        }
+
         // Fetch itemized line items for all salaries retrieved
         $rows = [];
         $totalGross = 0;
@@ -326,21 +354,7 @@ class ReportModel
 
         foreach ($salaries as $sal) {
             $salId = (int)$sal['id'];
-            $itemsStmt = $this->db->prepare("
-                SELECT 
-                    si.id, 
-                    si.type, 
-                    si.component_name, 
-                    si.category, 
-                    si.amount, 
-                    COALESCE(pc.code, '') as component_code
-                FROM salary_items si
-                LEFT JOIN payroll_components pc ON si.component_id = pc.id
-                WHERE si.salary_id = ?
-                ORDER BY si.type ASC, si.id ASC
-            ");
-            $itemsStmt->execute([$salId]);
-            $items = $itemsStmt->fetchAll(PDO::FETCH_ASSOC);
+            $items = $itemsBySalary[$salId] ?? [];
 
             $earningsList = [];
             $deductionsList = [];
@@ -489,6 +503,34 @@ class ReportModel
         $stmt->execute($userParams);
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        // ⚡ Bolt: Fix N+1 query by batch fetching leave balances
+        $allBalances = [];
+        if (!empty($users)) {
+            $userIds = array_column($users, 'id');
+            $inClause = implode(',', array_fill(0, count($userIds), '?'));
+            $balStmt = $this->db->prepare("
+                SELECT
+                    b.user_id,
+                    b.total_days,
+                    b.used_days,
+                    t.code as type_code,
+                    t.name as type_name,
+                    t.is_paid
+                FROM leave_balances b
+                JOIN leave_types t ON b.leave_type_id = t.id
+                WHERE b.user_id IN ($inClause) AND b.year = ?
+            ");
+            $params = $userIds;
+            $params[] = $year;
+            $balStmt->execute($params);
+            $allBalances = $balStmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        $balancesByUser = [];
+        foreach ($allBalances as $bal) {
+            $balancesByUser[$bal['user_id']][] = $bal;
+        }
+
         $rows = [];
         $totalAccruedReserve = 0;
         $totalDaysConsumed = 0;
@@ -501,19 +543,7 @@ class ReportModel
             $dailyRate = round($baseSalary / 30, 2);
 
             // Fetch leave balances for this user
-            $balStmt = $this->db->prepare("
-                SELECT 
-                    b.total_days, 
-                    b.used_days, 
-                    t.code as type_code, 
-                    t.name as type_name, 
-                    t.is_paid
-                FROM leave_balances b
-                JOIN leave_types t ON b.leave_type_id = t.id
-                WHERE b.user_id = ? AND b.year = ?
-            ");
-            $balStmt->execute([$uId, $year]);
-            $balances = $balStmt->fetchAll(PDO::FETCH_ASSOC);
+            $balances = $balancesByUser[$uId] ?? [];
 
             $clQuota = 0; $clUsed = 0;
             $slQuota = 0; $slUsed = 0;
