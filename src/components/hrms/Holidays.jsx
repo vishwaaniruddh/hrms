@@ -410,13 +410,13 @@ export default function Holidays() {
             flexWrap: 'wrap'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-              <button className="btn btn-outline btn-sm btn-icon" onClick={handlePrevMonth} title="Previous month">
+              <button aria-label="Previous month" className="btn btn-outline btn-sm btn-icon" onClick={handlePrevMonth} title="Previous month">
                 <ChevronLeft size={16} />
               </button>
               <h2 style={{ fontSize: '1.05rem', fontWeight: 700, minWidth: '160px', textAlign: 'center' }}>
                 {monthName}
               </h2>
-              <button className="btn btn-outline btn-sm btn-icon" onClick={handleNextMonth} title="Next month">
+              <button aria-label="Next month" className="btn btn-outline btn-sm btn-icon" onClick={handleNextMonth} title="Next month">
                 <ChevronRight size={16} />
               </button>
 
